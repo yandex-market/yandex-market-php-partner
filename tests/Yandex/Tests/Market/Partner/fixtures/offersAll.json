@@ -1,0 +1,20 @@
+{
+  "offers":
+  [
+    {
+      "bid": 1.16,
+      "cbid": 0.11,
+      "currency": "RUR",
+      "discount": 17,
+      "feedId": 375216,
+      "id": "1636288",
+      "marketCategoryId": 913,
+      "modelId": 8350595,
+      "preDiscountPrice": 8990,
+      "price":7490,
+      "shopCategoryId": "129",
+      "name": "Бинокли, Телескопы Nikon Aculon T11 8-24x25 (черный)",
+      "url": "http://nuf-nuf.yandex.ru/product/21003"
+    }
+  ]
+}

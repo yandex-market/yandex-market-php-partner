@@ -1,0 +1,50 @@
+{
+  "settings":
+  {
+    "countryRegion": 225,
+    "isOnline": true,
+    "shopName": "Магазин",
+    "showInContext": true,
+    "showInPremium": true,
+    "showInSnippets": true,
+    "useOpenStat": false,
+    "localRegion":
+    {
+      "id": 10740,
+      "name": "Мытищи",
+      "type": "CITY",
+      "delivery":
+      {
+        "schedule":
+        {
+          "availableOnHolidays": false,
+          "source": "WEB",
+          "customHolidays":
+          [
+            "29-12-2016"
+          ],
+          "customWorkingDays":
+          [
+          ],
+          "period":
+          {
+            "fromDate": "23-12-2016",
+            "toDate": "10-02-2017"
+          },
+          "totalHolidays":
+          [
+            "24-12-2016",
+            "25-12-2016",
+            "28-12-2016"
+          ],
+          "weeklyHolidays":
+          [
+            3,
+            6,
+            7
+          ]
+        }
+      }
+    }
+  }
+}

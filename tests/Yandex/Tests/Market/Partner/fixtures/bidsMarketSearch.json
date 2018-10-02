@@ -1,0 +1,510 @@
+{
+  "result":
+  {
+    "topRecommendations":
+    [
+      {
+        "bid": 0.12,
+        "cbid": 0.01,
+        "feedId": 789101,
+        "minBid": 0.12,
+        "minCbid": 0.01,
+        "offerId": "123456",
+        "name": "Lenovo G5045 80E301Q9RK black 15.6 HD E1-6010 / 2 Gb / 500 Gb / noDVD / W10",
+        "queries":
+        [
+          {
+            "averageOfferPos": 2,
+            "currentPosAll": 1,
+            "modelCount": 0,
+            "offerShowCount": 22,
+            "queryShowCount": 50,
+            "text": "80E301Q9RK",
+            "type": "TOP_OFFER",
+            "positions":
+            [
+              {
+                "bid": 0.12,
+                "pos": 1
+              },
+              {
+                "bid": 0.12,
+                "pos": 2
+              },
+              {
+                "bid": 0.12,
+                "pos": 3
+              },
+              {
+                "bid": 0.12,
+                "pos": 4
+              },
+              {
+                "bid": 0.12,
+                "pos": 5
+              },
+              {
+                "bid": 0.12,
+                "pos": 6
+              },
+              {
+                "bid": 0.12,
+                "pos": 7
+              },
+              {
+                "pos": 8,
+                "bid": 0.12
+              },
+              {
+                "pos": 9,
+                "bid": 0.12
+              },
+              {
+                "bid": 0.12,
+                "pos": 10
+              },
+              {
+                "bid": 0.12,
+                "pos": 11
+              },
+              {
+                "bid": 0.12,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 47,
+            "currentPosAll": 1,
+            "modelCount": 0,
+            "offerShowCount": 17,
+            "queryShowCount": 2478,
+            "text": "9RK",
+            "type": "TOP_OFFER",
+            "positions":
+            [
+              {
+                "bid": 0.12,
+                "pos": 1
+              },
+              {
+                "bid": 0.12,
+                "pos": 2
+              },
+              {
+                "bid": 0.12,
+                "pos": 3
+              },
+              {
+                "bid": 0.12,
+                "pos": 4
+              },
+              {
+                "bid": 0.12,
+                "pos": 5
+              },
+              {
+                "bid": 0.12,
+                "pos": 6
+              },
+              {
+                "bid": 0.12,
+                "pos": 7
+              },
+              {
+                "bid": 0.12,
+                "pos": 8
+              },
+              {
+                "bid": 0.12,
+                "pos": 9
+              },
+              {
+                "bid": 0.12,
+                "pos": 10
+              },
+              {
+                "bid": 0.12,
+                "pos": 11
+              },
+              {
+                "bid": 0.12,
+                "pos": 12
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "bid": 0.13,
+        "cbid": 0.01,
+        "feedId": 789101,
+        "minBid": 0.13,
+        "minCbid": 0.01,
+        "offerId": "112131",
+        "name": "Компьютер C400008Ц-NORBEL Office Base ATI-Intel Core i3 4170 / H81M-P33 / 4 Gb / 500 Gb",
+        "queries":
+        [
+          {
+            "averageOfferPos": 10,
+            "currentPosAll": 10,
+            "modelCount": 0,
+            "offerShowCount": 14,
+            "queryShowCount": 267,
+            "text": "H81M-P33",
+            "type": "TOP_ALL",
+            "positions":
+            [
+              {
+                "bid": 0.68,
+                "pos": 1
+              },
+              {
+                "bid": 0.68,
+                "pos": 2
+              },
+              {
+                "bid": 0.63,
+                "pos": 3
+              },
+              {
+                "bid": 0.60,
+                "pos": 4
+              },
+              {
+                "bid": 0.55,
+                "pos": 5
+              },
+              {
+                "bid": 0.52,
+                "pos": 6
+              },
+              {
+                "bid": 0.52,
+                "pos": 7
+              },
+              {
+                "bid": 0.40,
+                "pos": 8
+              },
+              {
+                "bid": 0.18,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 9,
+            "modelCount": 0,
+            "offerShowCount": 7,
+            "queryShowCount": 73,
+            "text": "H81M-P33 PLUS",
+            "type": "TOP_ALL",
+            "positions":
+            [
+              {
+                "error": "UNREACHABLE",
+                "pos": 1
+              },
+              {
+                "error": "UNREACHABLE",
+                "pos": 2
+              },
+              {
+                "bid": 0.49,
+                "pos": 3
+              },
+              {
+                "bid": 0.41,
+                "pos": 4
+              },
+              {
+                "bid": 0.41,
+                "pos": 5
+              },
+              {
+                "bid": 0.41,
+                "pos": 6
+              },
+              {
+                "bid": 0.38,
+                "pos": 7
+              },
+              {
+                "bid": 0.34,
+                "pos": 8
+              },
+              {
+                "bid": 0.13,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 10,
+            "currentPosAll": 9,
+            "modelCount": 0,
+            "offerShowCount": 4,
+            "queryShowCount": 51,
+            "text": "H81M-P",
+            "type": "TOP_ALL",
+            "positions":
+            [
+              {
+                "bid": 1.00,
+                "pos": 1
+              },
+              {
+                "bid": 0.99,
+                "pos": 2
+              },
+              {
+                "bid": 0.61,
+                "pos": 3
+              },
+              {
+                "bid": 0.59,
+                "pos": 4
+              },
+              {
+                "bid": 0.51,
+                "pos": 5
+              },
+              {
+                "bid": 0.49,
+                "pos": 6
+              },
+              {
+                "bid": 0.49,
+                "pos": 7
+              },
+              {
+                "bid": 0.27,
+                "pos": 8
+              },
+              {
+                "bid": 0.13,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 10,
+            "currentPosAll": 10,
+            "modelCount": 0,
+            "offerShowCount": 14,
+            "queryShowCount": 267,
+            "text": "H81M-P33",
+            "type": "TOP_OFFER",
+            "positions":
+            [
+              {
+                "bid": 0.68,
+                "pos": 1
+              },
+              {
+                "bid": 0.68,
+                "pos": 2
+              },
+              {
+                "bid": 0.63,
+                "pos": 3
+              },
+              {
+                "bid": 0.60,
+                "pos": 4
+              },
+              {
+                "bid": 0.55,
+                "pos": 5
+              },
+              {
+                "bid": 0.52,
+                "pos": 6
+              },
+              {
+                "bid": 0.52,
+                "pos": 7
+              },
+              {
+                "bid": 0.40,
+                "pos": 8
+              },
+              {
+                "bid": 0.18,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 9,
+            "modelCount": 0,
+            "offerShowCount": 7,
+            "queryShowCount": 73,
+            "text": "H81M-P33 PLUS",
+            "type": "TOP_OFFER",
+            "positions":
+            [
+              {
+                "error": "UNREACHABLE",
+                "pos": 1
+              },
+              {
+                "error": "UNREACHABLE",
+                "pos": 2
+              },
+              {
+                "bid": 0.49,
+                "pos": 3
+              },
+              {
+                "bid": 0.41,
+                "pos": 4
+              },
+              {
+                "bid": 0.41,
+                "pos": 5
+              },
+              {
+                "bid": 0.41,
+                "pos": 6
+              },
+              {
+                "bid": 0.38,
+                "pos": 7
+              },
+              {
+                "bid": 0.34,
+                "pos": 8
+              },
+              {
+                "bid": 0.13,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          },
+          {
+            "averageOfferPos": 10,
+            "currentPosAll": 9,
+            "modelCount": 0,
+            "offerShowCount": 4,
+            "queryShowCount": 51,
+            "text": "H81M-P",
+            "type": "TOP_OFFER",
+            "positions":
+            [
+              {
+                "bid": 1.00,
+                "pos": 1
+              },
+              {
+                "bid": 0.99,
+                "pos": 2
+              },
+              {
+                "bid": 0.61,
+                "pos": 3
+              },
+              {
+                "bid": 0.59,
+                "pos": 4
+              },
+              {
+                "bid": 0.51,
+                "pos": 5
+              },
+              {
+                "bid": 0.49,
+                "pos": 6
+              },
+              {
+                "bid": 0.49,
+                "pos": 7
+              },
+              {
+                "bid": 0.27,
+                "pos": 8
+              },
+              {
+                "bid": 0.13,
+                "pos": 9
+              },
+              {
+                "bid": 0.13,
+                "pos": 10
+              },
+              {
+                "bid": 0.13,
+                "pos": 11
+              },
+              {
+                "bid": 0.13,
+                "pos": 12
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

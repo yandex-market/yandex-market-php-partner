@@ -1,0 +1,48 @@
+{
+  "recommendations": [
+    {
+      "bid": 0.32,
+      "cbid": 1.01,
+      "feedId": 3456,
+      "minBid": 0.32,
+      "minCbid": 0.08,
+      "offerId": "12",
+      "modelCard": {
+        "currentPosAll": 5,
+        "currentPosTop": 5,
+        "posRecommendations": {
+          "1": {
+            "cbid": 1.26
+          },
+          "2": {
+            "cbid": 1.03
+          },
+          "3": {
+            "cbid": 0.89
+          },
+          "4": {
+            "cbid": 0.86
+          },
+          "5": {
+            "cbid": 0.51
+          },
+          "6": {
+            "cbid": 0.5
+          },
+          "7": {
+            "cbid": 0.41
+          },
+          "8": {
+            "cbid": 0.35
+          },
+          "9": {
+            "cbid": 0.34
+          },
+          "10": {
+            "cbid": 0.26
+          }
+        }
+      }
+    }
+  ]
+}

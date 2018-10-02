@@ -1,0 +1,46 @@
+{
+  "models":
+  [
+    {
+      "id": 7717706,
+      "name": "Apple iPhone 4S 16 Gb",
+      "prices":
+      {
+        "avg": 24990,
+        "max": 68400,
+        "min": 21500
+      }
+    },
+    {
+      "id": 7717686,
+      "name": "Apple iPhone 4S 32 Gb",
+      "prices":
+      {
+        "avg": 28500,
+        "max": 46000,
+        "min": 24450
+      }
+    },
+    {
+      "id": 7717687,
+      "name": "Apple iPhone 4S 64 Gb",
+      "prices":
+      {
+        "avg": 32500,
+        "max": 89950,
+        "min": 27200
+      }
+    }
+  ],
+  "pager":
+  {
+    "currentPage": 1,
+    "from": 1,
+    "pageSize": 3,
+    "pagesCount": 1088,
+    "to": 3,
+    "total": 3263
+  },
+  "currency": "RUR",
+  "regionId": 2
+}

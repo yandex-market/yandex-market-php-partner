@@ -1,0 +1,85 @@
+{
+  "coords": "20.4522144, 54.7104264",
+  "id": 171819,
+  "isMain": false,
+  "name": "На Озёрной",
+  "shopOutletCode": "419",
+  "status": "AT_MODERATION",
+  "type": "DEPOT",
+  "visibility": "VISIBLE",
+  "address":
+  {
+    "regionId": 22,
+    "street": "ОЗЕРНАЯ",
+    "number": "20А"
+  },
+  "deliveryRules":
+  [
+    {
+      "cost": 285,
+      "deliveryServiceId": 100,
+      "maxDeliveryDays": 30,
+      "minDeliveryDays": 0,
+      "orderBefore": 24,
+      "priceFreePickup": 120,
+      "unspecifiedDeliveryInterval": true
+    }
+  ],
+  "emails":
+  [
+    "example-shop@yandex.ru"
+  ],
+  "phones":
+  [
+    "+7 (401) 212-22-32 #123"
+  ],
+  "region":
+  {
+    "id": 22,
+    "name": "Калининград",
+    "type": "CITY",
+    "parent":
+    {
+      "id": 121022,
+      "name": "Городской округ Калининград",
+      "type": "REPUBLIC_AREA",
+      "parent":
+      {
+        "id": 10857,
+        "name": "Калининградская область",
+        "type": "REPUBLIC",
+        "parent":
+        {
+          "id": 17,
+          "name": "Северо-Западный федеральный округ",
+          "type": "COUNTRY_DISTRICT",
+          "parent":
+          {
+            "id": 225,
+            "name": "Россия",
+            "type": "COUNTRY"
+          }
+        }
+      }
+    }
+  },
+  "workingSchedule":
+  {
+    "workInHoliday": false,
+    "scheduleItems":
+    [
+      {
+        "startDay": "MONDAY",
+        "endDay": "FRIDAY",
+        "startTime": "09:00",
+        "endTime": "19:00"
+      },
+      {
+        "startDay": "SATURDAY",
+        "endDay": "SATURDAY",
+        "startTime": "10:00",
+        "endTime": "16:00"
+      }
+    ]
+  }
+}

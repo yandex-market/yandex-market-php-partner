@@ -1,0 +1,18 @@
+{
+  "result":
+  {
+    "tickets":
+    [
+      {
+        "checkMethod": 1,
+        "errorCode": 3,
+        "errorFoundTime": "2016-01-05T01:44:30",
+        "errorText": "Реальная цена выше",
+        "feedTime": "2015-12-27T05:36:17",
+        "offerURL": "http://shop.seller.ru/products/10087",
+        "status": 1,
+        "ticketId": 2799068
+      }
+    ]
+  }
+}

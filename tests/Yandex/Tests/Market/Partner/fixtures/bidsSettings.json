@@ -1,0 +1,18 @@
+{
+  "settings":
+  {
+    "autobrokerEnabled": true,
+    "bidsFrom": "UI_OR_API",
+    "offerIdBy": "OFFER_ID",
+    "bookBids":
+    {
+      "bid": 10,
+      "cbid": 20
+    },
+    "shopBids":
+    {
+      "bid": 10,
+      "cbid": 20
+    }
+  }
+}

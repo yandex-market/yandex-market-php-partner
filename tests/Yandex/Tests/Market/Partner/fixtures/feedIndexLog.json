@@ -1,0 +1,40 @@
+{
+  "result":
+  {
+    "feed":
+    {
+      "id": 12345
+    },
+    "indexLogRecords":
+    [
+      {
+        "downloadTime": "2017-11-21T00:42:42+03:00",
+        "fileTime": "2017-11-20T00:42:42+03:00",
+        "generationId": 20321,
+        "indexType": "FULL",
+        "publishedTime": "2017-11-21T01:42:42+03:00",
+        "status": "WARNING",
+        "offers":
+        {
+          "rejectedCount": 99,
+          "totalCount": 10231
+        }
+      },
+      {
+        "downloadTime": "2017-11-21T15:42:42+03:00",
+        "fileTime": "2017-11-20T15:42:42+03:00",
+        "generationId": 20320,
+        "indexType": "FAST_PRICE",
+        "publishedTime": "2017-11-21T15:42:42+03:00",
+        "status": "ERROR",
+        "error":
+        {
+          "type": "DOWNLOAD_ERROR",
+          "description": "server status is no status code; ERR: errcode: 6, msg: Could not resolve host: nif-nif.yandex.ru"
+        }
+      }
+    ],
+    "total": 1229
+  },
+  "status": "OK"
+}

@@ -1,0 +1,107 @@
+{
+  "models":
+  [
+    {
+      "id": 11002659,
+      "offers":
+      [
+        {
+          "name": "Стиральная машина Bosch WOT 20255",
+          "pos": 1,
+          "price": 37970,
+          "regionId": 213,
+          "shippingCost": 490,
+          "shopName": "Магазин.Ру",
+          "shopRating": 5
+        },
+        {
+          "name": "Стиральная машина Bosch WOT20255OE",
+          "pos": 2,
+          "price": 47990,
+          "regionId": 213,
+          "shippingCost": 490,
+          "shopName": "Ниф-Ниф.Ру",
+          "shopRating": 4
+        },
+        {
+          "name": "Стиральная машина Bosch WOT 20255OE",
+          "pos": 3,
+          "price": 47990,
+          "regionId": 213,
+          "shippingCost": 600,
+          "shopName": "Наф-Наф.Ру",
+          "shopRating": 5
+        },
+        {
+          "discount": 15,
+          "name": "Bosch WOT 20255",
+          "pos": 4,
+          "preDiscountPrice": 40000,
+          "price": 34000,
+          "regionId": 213,
+          "shippingCost": 999,
+          "shopName": "Нуф-Нуф.Ру",
+          "shopRating": 3
+        },
+        {
+          "name": "Стиральная машина с вертикальной загрузкой Bosch WOT20255OE",
+          "pos": 5,
+          "price": 38990,
+          "regionId": 213,
+          "shippingCost": 490,
+          "shopName": "Волк.Ру",
+          "shopRating": 4
+        },
+        {
+          "name": "Стиральная машина Bosch WOT20255OE",
+          "pos": 6,
+          "price": 38989,
+          "regionId": 213,
+          "shippingCost": 450,
+          "shopName": "Белоснежка.Ру",
+          "shopRating": 4
+        },
+        {
+          "name": "Стиральная машина Bosch WOT 20255OE",
+          "pos": 7,
+          "price": 47990,
+          "regionId": 213,
+          "shippingCost": 600,
+          "shopName": "ИльяМуромец.Ру",
+          "shopRating": 5
+        },
+        {
+          "name": "Стиральная машина с вертикальной загрузкой Bosch WOT20255OE",
+          "pos": 8,
+          "price": 37390,
+          "regionId": 213,
+          "shippingCost": 0,
+          "shopName": "ДобрыняНикитич.Ру",
+          "shopRating": 4
+        },
+        {
+          "name": "Стиральная машина Bosch WOT 20255",
+          "pos": 9,
+          "price": 36740,
+          "regionId": 213,
+          "shippingCost": 600,
+          "shopName": "АлешаПопович.Ру",
+          "shopRating": 4
+        },
+        {
+          "name": "Стиральная машина с вертикальной загрузкой Bosch WOT20255OE",
+          "pos": 10,
+          "price": 37390,
+          "regionId": 213,
+          "shippingCost": 700,
+          "shopName": "Медведь.Ру",
+          "shopRating": 3
+        }
+      ],
+      "offlineOffers": 258,
+      "onlineOffers": 15
+    }
+  ],
+  "currency": "RUR",
+  "regionId": 213
+}

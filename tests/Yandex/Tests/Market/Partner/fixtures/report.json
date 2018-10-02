@@ -1,0 +1,18 @@
+{
+  "result":
+  {
+    "actualErrorCount": 5,
+    "ageBonus": 1,
+    "archiveErrorCount": 5,
+    "checkCount": 8,
+    "cloneCount": 1,
+    "errorCount": 8,
+    "gradeCount": 109,
+    "marketRating": 0.74,
+    "modificationTime": "2016-03-18T00:00:00",
+    "opinionCount": 717,
+    "opinionUrl": "https://partner.market.yandex.ru/shop-opinions.xml?id...",
+    "qualityBonus": 0,
+    "qualityServiceRating": 0.1
+  }
+}

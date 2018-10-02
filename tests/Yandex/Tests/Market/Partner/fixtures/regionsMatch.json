@@ -1,0 +1,63 @@
+{
+  "regions":
+  [
+    {
+      "id": 11380,
+      "name": "Ивановка",
+      "type": "TOWN",
+      "parent":
+      {
+        "id": 100295,
+        "name": "Ивановский район",
+        "type": "REPUBLIC_AREA",
+        "parent":
+        {
+          "id": 11375,
+          "name": "Амурская область",
+          "type": "REPUBLIC",
+          "parent":
+          {
+            "id": 73,
+            "name": "Дальневосточный федеральный округ",
+            "type": "AREA",
+            "parent":
+            {
+              "id": 225,
+              "name": "Россия",
+              "type": "COUNTRY"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 28630,
+      "name": "Ивановка",
+      "type": "TOWN",
+      "parent":
+      {
+        "id": 24533,
+        "name": "Ивановский район",
+        "type": "REPUBLIC_AREA",
+        "parent":
+        {
+          "id": 20548,
+          "name": "Одесская область",
+          "type": "REPUBLIC",
+          "parent":
+          {
+            "id": 20527,
+            "name": "Юг",
+            "type": "REGION",
+            "parent":
+            {
+              "id": 187,
+              "name": "Украина",
+              "type": "COUNTRY"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
