@@ -1,0 +1,28 @@
+{
+  "result":
+  {
+    "tickets":
+    [
+      {
+        "checkMethod": 1,
+        "errorCode": 7,
+        "errorFoundTime": "2017-06-05T00:42:42",
+        "errorText": "Реальная цена выше",
+        "feedTime": "2015-12-27T00:42:42",
+        "offerURL": "http://shop.seller.ru/products/56789",
+        "status": 6,
+        "ticketId": 1011121
+      },
+      {
+        "checkMethod": 1,
+        "errorCode": 3,
+        "errorFoundTime": "2017-02-05T00:41:12",
+        "errorText": "Реальная цена ниже",
+        "feedTime": "2016-11-24T00:22:52",
+        "offerURL": "http://shop.seller.ru/products/56789",
+        "status": 4,
+        "ticketId": 1011121
+      }
+    ]
+  }
+}

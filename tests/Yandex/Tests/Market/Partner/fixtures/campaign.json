@@ -1,0 +1,13 @@
+{
+  "campaign":
+  {
+    "domain": "nif-nif.yandex.ru",
+    "id": 10001,
+    "state": 2,
+    "stateReasons":
+    [
+      6,
+      9
+    ]
+  }
+}

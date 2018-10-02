@@ -1,0 +1,24 @@
+{
+  "offersStats": {
+    "fromOffer": 1,
+    "toOffer": 1,
+    "totalOffersCount": 21739,
+    "offerStats": [
+      {
+        "clicks": 474,
+        "feedId": 323204,
+        "offerId": "002000000001135",
+        "spending": "52.86",
+        "detailedStats": [
+          {
+            "clicks": 1,
+            "spending": "3.14",
+            "type": "mobile"
+          }
+        ],
+        "offerName": "PocketBook IQ 701, Dark Blue",
+        "url": "http://www.example-shop.ru/product_page.html"
+      }
+    ]
+  }
+}

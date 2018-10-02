@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "errors": [
+    {
+      "code" : "TEST_CODE",
+      "message" : "TEST_MESSAGE"
+    },
+    {
+      "code" : "TEST_CODE"
+    },
+    {
+      "message" : "TEST_MESSAGE"
+    }
+  ]
+}

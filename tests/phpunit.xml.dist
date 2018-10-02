@@ -1,0 +1,20 @@
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         stopOnFailure="false"
+         colors="true"
+         verbose="true"
+         bootstrap="./bootstrap.php">
+    <testsuites>
+        <testsuite name="Library Test Suite">
+            <directory>./Yandex/Tests/Market/Partner</directory>
+        </testsuite>
+    </testsuites>
+    <listeners>
+        <listener class="\Yandex\Tests\TestListener" />
+    </listeners>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
+</phpunit>

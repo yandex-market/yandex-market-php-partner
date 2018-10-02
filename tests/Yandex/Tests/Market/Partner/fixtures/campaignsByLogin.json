@@ -1,0 +1,14 @@
+{
+  "campaigns":
+  [
+    {
+      "domain": "nuf-nuf.yandex.ru",
+      "id": 10002,
+      "state": 4,
+      "stateReasons":
+      [
+        21
+      ]
+    }
+  ]
+}

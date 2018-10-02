@@ -1,0 +1,31 @@
+{
+  "categories":
+  [
+    {
+      "feedId": 12345,
+      "id": "1",
+      "name": "Телевизоры"
+    },
+    {
+      "feedId": 12347,
+      "id": "2",
+      "name": "ЖК",
+      "parentId": "1"
+    },
+    {
+      "feedId": 12347,
+      "id": "3",
+      "name": "Плазменные",
+      "parentId": "1"
+    }
+  ],
+  "pager":
+  {
+    "currentPage": 1,
+    "from": 1,
+    "pagesCount": 1,
+    "pageSize": 3,
+    "to": 3,
+    "total": 3
+  }
+}

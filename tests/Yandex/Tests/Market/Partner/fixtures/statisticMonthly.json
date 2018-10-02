@@ -1,0 +1,39 @@
+{
+  "mainStats":
+  [
+    {
+      "clicks": 328791,
+      "date": "2017-05-05",
+      "placeGroup": 0,
+      "spending": 740217.05
+    },
+    {
+      "clicks": 140500,
+      "date": "2017-05-10",
+      "placeGroup": 0,
+      "spending": 88100.69
+    },
+    {
+      "clicks": 40,
+      "date": "2017-05-01",
+      "placeGroup": 0,
+      "shows": "41",
+      "spending": 4.24,
+      "detailedStats":
+      [
+        {
+          "clicks": 3,
+          "shows": "4",
+          "spending": 4.1,
+          "type": "mobile"
+        },
+        {
+          "clicks": 13,
+          "shows": "422",
+          "spending": 41.1,
+          "type": "desktop"
+        }
+      ]
+    }
+  ]
+}

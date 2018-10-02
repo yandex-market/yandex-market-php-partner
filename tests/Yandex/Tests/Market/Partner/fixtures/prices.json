@@ -1,0 +1,37 @@
+{
+  "result":
+  {
+    "offers":
+    [
+      {
+        "feed":
+        {
+          "id": 479633
+        },
+        "id": "1636288",
+        "price":
+        {
+          "currencyId": "RUR",
+          "value": 1500.00
+        },
+        "updatedAt": "2018-04-13T13:13:01+03:00"
+      },
+      {
+        "feed":
+        {
+          "id": 479633
+        },
+        "id": "1687614",
+        "price":
+        {
+          "currencyId": "RUR",
+          "discountBase": 900.00,
+          "value": 820.00
+        },
+        "updatedAt": "2018-04-12T09:44:42+03:00"
+      }
+    ],
+    "total": 4
+  },
+  "status": "OK"
+}

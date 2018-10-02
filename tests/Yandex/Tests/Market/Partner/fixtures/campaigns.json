@@ -1,0 +1,38 @@
+{
+  "campaigns":
+  [
+    {
+      "domain": "nif-nif.yandex.ru",
+      "id": 10001,
+      "state": 2,
+      "stateReasons":
+      [
+        6,
+        9
+      ]
+    },
+    {
+      "domain": "nuf-nuf.yandex.ru",
+      "id": 10002,
+      "state": 4,
+      "stateReasons":
+      [
+        21
+      ]
+    },
+    {
+      "domain": "naf-naf.yandex.ru",
+      "id": 10003,
+      "state": 1
+    }
+  ],
+  "pager":
+  {
+    "currentPage": 1,
+    "from": 1,
+    "pagesCount": 1,
+    "pageSize": 3,
+    "to": 3,
+    "total": 3
+  }
+}

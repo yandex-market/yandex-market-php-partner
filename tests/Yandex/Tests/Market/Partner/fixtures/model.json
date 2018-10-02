@@ -1,0 +1,17 @@
+{
+  "models":
+  [
+    {
+      "id": 7012977,
+      "name": "Galaxy S II I9100",
+      "prices":
+      {
+        "avg": 22690,
+        "max": 50000,
+        "min": 14130
+      }
+    }
+  ],
+  "currency": "RUR",
+  "regionId": 213
+}

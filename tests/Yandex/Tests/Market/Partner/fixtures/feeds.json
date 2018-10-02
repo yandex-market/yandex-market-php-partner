@@ -1,0 +1,65 @@
+{
+  "feeds":
+  [
+    {
+      "id": 12345,
+      "login": "badbadwolf",
+      "password": "afraid",
+      "url": "http://nuf-nuf.yandex.ru/price.xml",
+      "content":
+      {
+        "rejectedOffersCount": 0,
+        "status": "OK",
+        "totalOffersCount": 534
+      },
+      "download":
+      {
+        "status": "OK"
+      },
+      "placement":
+      {
+        "totalOffersCount": 534
+      },
+      "publication":
+      {
+        "status": "OK",
+        "full":
+        {
+          "fileTime": "2017-12-14T21:42:42+03:00",
+          "publishedTime": "2017-12-14T23:42:42+03:00"
+        },
+        "priceAndStockUpdate":
+        {
+          "fileTime": "2017-12-14T21:42:42+03:00",
+          "publishedTime": "2017-12-14T22:42:42+03:00"
+        }
+      }
+    },
+    {
+      "id": 67891,
+      "login": "badwolfbad",
+      "password": "password",
+      "url": "http://nuf-nuf.yandex.ru/price.xml",
+      "content":
+      {
+        "status": "ERROR",
+        "error":
+        {
+          "type": "TOO_MANY_REJECTED_OFFERS"
+        }
+      },
+      "download":
+      {
+        "status": "OK"
+      },
+      "placement":
+      {
+        "totalOffersCount": 0
+      },
+      "publication":
+      {
+        "status": "NA"
+      }
+    }
+  ]
+}

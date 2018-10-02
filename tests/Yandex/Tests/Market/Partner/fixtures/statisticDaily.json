@@ -1,0 +1,21 @@
+{
+  "mainStats":
+  [
+    {
+      "clicks": 6,
+      "date": "2017-05-01",
+      "placeGroup": 0,
+      "shows": "7",
+      "spending": 8.90,
+      "detailedStats":
+      [
+        {
+          "clicks": 1,
+          "shows": "2",
+          "spending": 3.45,
+          "type": "mobile"
+        }
+      ]
+    }
+  ]
+}

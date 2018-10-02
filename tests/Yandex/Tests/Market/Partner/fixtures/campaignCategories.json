@@ -1,0 +1,48 @@
+{
+  "categories":
+  [
+    {
+      "feedId": 12345,
+      "id": "1",
+      "name": "Телевизоры"
+    },
+    {
+      "feedId": 12345,
+      "id": "2",
+      "name": "ЖК",
+      "parentId": "1"
+    },
+    {
+      "feedId": 12345,
+      "id": "3",
+      "name": "Плазменные",
+      "parentId": "1"
+    },
+    {
+      "feedId": 67891,
+      "id": "1",
+      "name": "Телевизоры"
+    },
+    {
+      "feedId": 67891,
+      "id": "2",
+      "name": "ЖК",
+      "parentId": "1"
+    },
+    {
+      "feedId": 67891,
+      "id": "4",
+      "name": "ЭЛТ",
+      "parentId": "1"
+    }
+  ],
+  "pager":
+  {
+    "currentPage": 1,
+    "from": 1,
+    "pagesCount": 1,
+    "pageSize": 6,
+    "to": 6,
+    "total":6
+  }
+}

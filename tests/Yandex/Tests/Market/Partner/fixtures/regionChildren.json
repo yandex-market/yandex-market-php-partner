@@ -1,0 +1,127 @@
+{
+  "pager": {
+    "currentPage": 2,
+    "from": 21,
+    "pagesCount": 4,
+    "pageSize": 20,
+    "to": 40,
+    "total": 75
+  },
+  "regions": {
+    "id": 1,
+    "name": "Москва и Московская область",
+    "type": "REPUBLIC",
+    "children": [
+      {
+        "id": 98580,
+        "name": "Волоколамский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98581,
+        "name": "Воскресенский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98582,
+        "name": "Дмитровский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98589,
+        "name": "Коломенский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98592,
+        "name": "Лотошинский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98593,
+        "name": "Луховицкий район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98594,
+        "name": "Люберецкий район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98595,
+        "name": "Можайский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98596,
+        "name": "Мытищинский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98597,
+        "name": "Наро-Фоминский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98598,
+        "name": "Ногинский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98599,
+        "name": "Одинцовский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98600,
+        "name": "Озерский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98601,
+        "name": "Орехово-Зуевский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98602,
+        "name": "Павлово-Посадский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98603,
+        "name": "Подольский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98604,
+        "name": "Пушкинский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98605,
+        "name": "Раменский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98606,
+        "name": "Рузский район",
+        "type": "REPUBLIC_AREA"
+      },
+      {
+        "id": 98607,
+        "name": "Ступинский район",
+        "type": "REPUBLIC_AREA"
+      }
+    ],
+    "parent": {
+      "id": 3,
+      "name": "Центральный федеральный округ",
+      "type": "AREA",
+      "parent": {
+        "id": 225,
+        "name": "Россия",
+        "type": "COUNTRY"
+      }
+    }
+  }
+}
