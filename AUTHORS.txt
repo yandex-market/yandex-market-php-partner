@@ -1,0 +1,2 @@
+The following authors have licensed their contributions to Yandex.Market LLC and everyone who uses "yandex-market-php-partner" under the 
+licensing terms detailed in LICENSE available at https://github.com/yandex-market/yandex-market-php-partner/blob/master/LICENSE.txt.
