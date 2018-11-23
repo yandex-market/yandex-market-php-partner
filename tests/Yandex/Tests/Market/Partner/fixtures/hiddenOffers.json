@@ -1,0 +1,17 @@
+{
+  "result": {
+    "hiddenOffers": [
+      {
+        "comment": "До поставки новой партии товара",
+        "feedId": 67891,
+        "offerId": "101Ab12313C",
+        "ttlInHours": 1
+      }
+    ],
+    "total": 3,
+    "paging": {
+      "nextPageToken": "Hj0gP0AQUIID01IE"
+    }
+  },
+  "status": "OK"
+}
