@@ -61,9 +61,9 @@ class HiddenOffersClient extends Client
     }
 
     /**
-     * Get all prices which specified by API
+     * Show offers
      *
-     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-offer-prices-docpage/
+     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/delete-campaigns-id-hidden-offers-docpage/
      *
      * @return PostResponse
      * @throws \Yandex\Common\Exception\ForbiddenException
