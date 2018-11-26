@@ -4,14 +4,40 @@
 namespace Yandex\Market\Partner\Clients;
 
 use Yandex\Market\Partner\Models\Response\GetOfferPricesResponse;
+use Yandex\Market\Partner\Models\Response\HiddenOffersResponse;
 use Yandex\Market\Partner\Models\Response\PostResponse;
 
-class PriceClient extends Client
+class HiddenOffersClient extends Client
 {
     /**
-     * Specify offer price without feeds
+     * Hidden offers list
      *
-     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-offer-prices-updates-docpage/
+     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-hidden-offers-docpage/
+     *
+     * @return HiddenOffersResponse
+     * @throws \Yandex\Common\Exception\ForbiddenException
+     * @throws \Yandex\Common\Exception\UnauthorizedException
+     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getInfo($campaignId, array $params = [])
+    {
+        $resource = 'campaigns/' . $campaignId . '/hidden-offers.json';
+        $resource .= '?' . $this->buildQueryString($params);
+
+        $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
+
+        $decodedResponseBody = $this->getDecodedBody($response->getBody());
+
+        var_dump($decodedResponseBody['result']);
+
+        return new HiddenOffersResponse($decodedResponseBody['result']);
+    }
+
+    /**
+     * Hide offers and hide settings
+     *
+     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-hidden-offers-docpage/
      *
      * @return PostResponse
      * @throws \Yandex\Common\Exception\ForbiddenException
@@ -19,9 +45,9 @@ class PriceClient extends Client
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function updatePrices($campaignId, array $params = [])
+    public function hideOffers($campaignId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/offer-prices/updates.json';
+        $resource = 'campaigns/' . $campaignId . '/hidden-offers.json';
 
         $response = $this->sendRequest(
             'POST',
@@ -35,9 +61,9 @@ class PriceClient extends Client
     }
 
     /**
-     * Delete all prices which specified by API
+     * Show offers
      *
-     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-offer-prices-removals-docpage/
+     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/delete-campaigns-id-hidden-offers-docpage/
      *
      * @return PostResponse
      * @throws \Yandex\Common\Exception\ForbiddenException
@@ -45,45 +71,18 @@ class PriceClient extends Client
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deletePrices($campaignId)
+    public function showOffers($campaignId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/offer-prices/removals.json';
+        $resource = 'campaigns/' . $campaignId . '/hidden-offers.json';
 
         $response = $this->sendRequest(
-            'POST',
+            'DELETE',
             $this->getServiceUrl($resource),
-            ['json' =>
-                [
-                    'removeAll' => true,
-                ],
-            ]
+            ['json' => $params]
         );
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
         return new PostResponse($decodedResponseBody);
-    }
-
-    /**
-     * Get all prices which specified by API
-     *
-     * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-offer-prices-docpage/
-     *
-     * @return GetOfferPricesResponse
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function getOfferPrices($campaignId, array $params = [])
-    {
-        $resource = 'campaigns/' . $campaignId . '/offer-prices.json';
-        $resource .= '?' . $this->buildQueryString($params);
-
-        $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
-
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        return new GetOfferPricesResponse($decodedResponseBody);
     }
 }

@@ -78,7 +78,7 @@ class OutletClient extends Client
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
-            ['form_params' => $params]
+            ['json' => $params]
         );
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
@@ -107,7 +107,7 @@ class OutletClient extends Client
         $response = $this->sendRequest(
             'PUT',
             $this->getServiceUrl($resource),
-            ['form_params' => $params]
+            ['json' => $params]
         );
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
