@@ -52,7 +52,7 @@ class HiddenOffersClient extends Client
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
-            ['form_params' => $params]
+            ['json' => $params]
         );
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
@@ -78,7 +78,7 @@ class HiddenOffersClient extends Client
         $response = $this->sendRequest(
             'DELETE',
             $this->getServiceUrl($resource),
-            ['form_params' => $params]
+            ['json' => $params]
         );
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
