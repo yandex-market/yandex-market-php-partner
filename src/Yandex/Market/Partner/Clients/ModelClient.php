@@ -119,9 +119,9 @@ class ModelClient extends Client
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelsOffers(array $params = [])
+    public function getModelsOffers($regionId, array $params = [])
     {
-        $resource = 'models/offers.json';
+        $resource = 'models/offers.json?regionId=' . $regionId;
 
         $response = $this->sendRequest(
             'POST',
