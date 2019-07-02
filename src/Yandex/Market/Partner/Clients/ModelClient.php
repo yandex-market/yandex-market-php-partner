@@ -46,7 +46,7 @@ class ModelClient extends Client
      */
     public function getModelMatch(array $params = [])
     {
-        $resource = 'models/.json';
+        $resource = 'models.json';
         $resource .= '?' . $this->buildQueryString($params);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
