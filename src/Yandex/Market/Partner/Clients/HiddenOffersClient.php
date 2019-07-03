@@ -29,8 +29,6 @@ class HiddenOffersClient extends Client
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        var_dump($decodedResponseBody['result']);
-
         return new HiddenOffersResponse($decodedResponseBody['result']);
     }
 
