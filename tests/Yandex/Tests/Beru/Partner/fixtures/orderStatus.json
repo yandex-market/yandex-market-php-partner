@@ -1,0 +1,69 @@
+{
+  "order":
+  {
+    "creationDate": "01-07-2017 00:42:42",
+    "currency": "RUR",
+    "fake": false,
+    "id": 12345,
+    "itemsTotal": 3700,
+    "paymentType": "PREPAID",
+    "paymentMethod": "YANDEX",
+    "status": "PROCESSING",
+    "substatus": "STARTED",
+    "taxSystem": "OSN",
+    "total": 4050,
+    "delivery":
+    {
+      "serviceName": "СПСР",
+      "type": "DELIVERY",
+      "region":
+      {
+        "id": 213,
+        "name": "Москва",
+        "type": "CITY",
+        "parent":
+        {
+          "id": 1,
+          "name": "Москва и Московская область",
+          "type": "SUBJECT_FEDERATION",
+          "parent":
+          {
+            "id": 3,
+            "name": "Центральный федеральный округ",
+            "type": "COUNTRY_DISTRICT",
+            "parent":
+            {
+              "id": 225,
+              "name": "Россия",
+              "type": "COUNTRY"
+            }
+          }
+        }
+      }
+    },
+    "items":
+    [
+      {
+        "offerId": 100423035876,
+        "count": 3,
+        "price": 1200,
+        "vat": "VAT_20",
+        "promos":
+        [
+          {
+            "marketPromoId": "abc",
+            "subsidy": 300,
+            "type": "MARKET_DEAL"
+          }
+        ]
+      },
+      {
+        "offerId": 100556386844,
+        "count": 1,
+        "price": 2200,
+        "vat": "VAT_20"
+      }
+    ],
+    "notes": "Привезите побыстрее, пожалуйста!"
+  }
+}
