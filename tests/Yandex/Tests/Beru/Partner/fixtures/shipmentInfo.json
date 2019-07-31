@@ -1,0 +1,58 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "shipmentRequest":
+    {
+      "id": 1493118794,
+      "type": "SUPPLY",
+      "status": "FINISHED",
+      "requestedDate": "2018-10-12T10:00:00+03:00",
+      "updatedAt": "2018-10-12T11:08:14+03:00",
+      "itemsTotalCount": 73,
+      "hasShortage": false,
+      "itemsTotalFactCount": 73,
+      "hasDefects": false,
+      "itemsTotalDefectCount": 0,
+      "documents":
+      [
+        {
+          "id": 939367901,
+          "createdAt": "2018-10-09T12:31:33+03:00",
+          "type": "SUPPLY"
+        }
+      ],
+      "statusHistory":
+      [
+        {
+          "date": "2018-10-09T10:18:47+03:00",
+          "status": "CREATED"
+        },
+        {
+          "date": "2018-10-09T10:23:15+03:00",
+          "status": "VALIDATED"
+        },
+        {
+          "date": "2018-10-09T10:23:19+03:00",
+          "status": "SENT_TO_SERVICE"
+        },
+        {
+          "date": "2018-10-09T12:31:33+03:00",
+          "status": "ACCEPTED_BY_SERVICE"
+        },
+        {
+          "date": "2018-10-12T10:04:17+03:00",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "date": "2018-10-12T10:58:00+03:00",
+          "status": "PROCESSED"
+        },
+        {
+          "date": "2018-10-12T11:08:14+03:00",
+          "status": "FINISHED"
+        }
+      ]
+    }
+  }
+}

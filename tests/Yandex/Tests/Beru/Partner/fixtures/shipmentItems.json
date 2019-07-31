@@ -1,0 +1,29 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "shipmentItems":
+    [
+      {
+        "shopSku": "iphone-6s-32gb-silver",
+        "marketSku": 100210862099,
+        "itemName": "Смартфон Apple iPhone 6S 32GB серебристый",
+        "barcodes":
+        [
+          "2341dasfav23d"
+        ],
+        "count": 12,
+        "factCount": 12,
+        "defectCount": 0,
+        "estimatedPrice": 30000.00,
+        "currency": "RUR",
+        "vat": "VAT_18",
+        "comment": "Хрупко"
+      }
+    ],
+    "paging":
+    {
+      "nextPageToken": "aG9tZSwgaXQZcyBj"
+    }
+  }
+}
