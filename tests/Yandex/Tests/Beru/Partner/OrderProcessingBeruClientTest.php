@@ -106,8 +106,7 @@ class OrderProcessingBeruClientTest extends TestCase
         $jsonObj = json_decode($json);
         $orderProcessingBeruClient = new OrderProcessingBeruClient();
 
-        $cartResp = $orderProcessingBeruClient->orderStatus($json);
-        $order = $cartResp->getOrder();
+        $order = $orderProcessingBeruClient->orderStatus($json);
 
         $this->assertEquals(
             $jsonObj->order->fake,
