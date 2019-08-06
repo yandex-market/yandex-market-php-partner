@@ -1,0 +1,31 @@
+{
+  "result":
+  {
+    "offers":
+    [
+      {
+        "marketSku": 3457345293,
+        "price":
+        {
+          "currencyId": "RUR",
+          "value": 1500.00,
+          "vat": 1
+        },
+        "updatedAt": "2018-04-13T13:13:01+03:00"
+      },
+      {
+        "marketSku": 5490875940,
+        "price":
+        {
+          "currencyId": "RUR",
+          "discountBase": 900.00,
+          "value": 820.00,
+          "vat": 1
+        },
+        "updatedAt": "2018-04-12T09:44:42+03:00"
+      }
+    ],
+    "total": 4
+  },
+  "status": "OK"
+}
