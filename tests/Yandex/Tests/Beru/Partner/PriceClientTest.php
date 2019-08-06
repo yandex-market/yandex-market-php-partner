@@ -67,7 +67,7 @@ class PriceClientTest extends TestCase
 
     public function testUpdatePrices()
     {
-        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/post.json');
+        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/postResponse.json');
         $jsonObj = json_decode($json);
         $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
 
@@ -87,7 +87,7 @@ class PriceClientTest extends TestCase
 
     public function testDeletePrices()
     {
-        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/post.json');
+        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/postResponse.json');
         $jsonObj = json_decode($json);
         $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
 
