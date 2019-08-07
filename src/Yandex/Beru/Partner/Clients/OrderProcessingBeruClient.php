@@ -45,12 +45,13 @@ class OrderProcessingBeruClient extends Client
      * @see https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/post-order-status-docpage/
      *
      * @param $response
-     * @return AcceptOrderResponse
+     * @return \Yandex\Beru\Partner\Models\Order
      */
     public function orderStatus($response)
     {
         $decodedResponseBody = $this->getDecodedBody($response);
+        $acceptOrderResponsenew = new AcceptOrderResponse($decodedResponseBody);
 
-        return new AcceptOrderResponse($decodedResponseBody);
+        return $acceptOrderResponsenew->getOrder();
     }
 }

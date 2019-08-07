@@ -6,17 +6,8 @@ use Yandex\Common\Model;
 
 class Item extends Model
 {
-    protected $id;
     protected $count;
     protected $offerId;
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @return int
