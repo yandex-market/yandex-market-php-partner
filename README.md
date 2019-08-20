@@ -368,6 +368,7 @@ foreach ($offersMappingEntries as $offerMappingEntries) {
 ```php
 $orderProcessingClientBeru = new \Yandex\Beru\Partner\Clients\OrderProcessingBeruClient();
 // Получаем список товаров в корзине
+// Метод ожидает массив в формате JSON, пример можно посмотреть в документации
 $cart = $orderProcessingClientBeru->getCart($request);
 
 // Получаем информацию о доставке
@@ -390,6 +391,7 @@ foreach ($items as $item) {
 ```php
 $orderProcessingClientBeru = new \Yandex\Beru\Partner\Clients\OrderProcessingBeruClient();
 // Получаем заказ
+// Метод ожидает массив в формате JSON, пример можно посмотреть в документации
 $order = $orderProcessingClientBeru->acceptOrder($request);
 
 // Получаем информацию о доставке
@@ -411,6 +413,7 @@ foreach ($items as $item) {
 ```php
 $orderProcessingClientBeru = new \Yandex\Beru\Partner\Clients\OrderProcessingBeruClient();
 // Получаем заказ
+// Метод ожидает массив в формате JSON, пример можно посмотреть в документации
 $order = $orderProcessingClientBeru->orderStatus($request);
 
 // Получаем информацию о доставке
@@ -608,6 +611,7 @@ foreach ($deliveryServices as $deliveryService) {
 Пример получаения данных на запрос **POST /stocks**
 ```php
 $stocksClient = new \Yandex\Beru\Partner\Clients\StocksClient($clientId, $token);
+// Метод ожидает массив в формате JSON, пример можно посмотреть в документации
 $stocks = $stocksClient->getStocks($request);
 // Получаем идентификатор склада
 print_r($stocks->getSkus());
