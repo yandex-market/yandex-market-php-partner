@@ -434,6 +434,159 @@ foreach ($shipments as $shipment) {
 
 ##### Запросы Магазина к Беру
 
+##### Изменение статуса заказа
+```php
+$orderProcessingClient = new \Yandex\Beru\Partner\Clients\OrderProcessingClient($clientId, $token);
+$campaignId = 125874;
+$orderid = 8030217;
+// Изменяем статус заказа
+$order = $orderProcessingClient->updateOrderStatus($campaignId, $order, ["order" =>
+  [
+      "status" => "CANCELLED",
+      "substatus" => "SHOP_FAILED"
+  ]
+]);
+echo 'Id: ' . $order->getId();
+echo 'ItemsTotal: ' . $order->getItemsTotal();
+echo 'Total: ' . $order->getTotal();
+echo 'Status: ' . $order->getStatus();
+// Получаем список товаров в заказе
+$items = $order->getItems();
+foreach ($items as $item) {
+    echo 'Id: ' . $item->getId();
+    echo 'OfferId: ' . $item->getOfferId();
+    echo 'Price: ' . $item->getPrice();
+}
+//Информация о доставке
+$delivery = $order->getDelivery();
+$region = $delivery->getRegion();
+$parentRegion = $region->getParent();
+//Список посылок
+$shipments = $delivery->getShipments();
+foreach ($shipments as $shipment) {
+    $items = $shipment->getItems();
+    echo 'Id: ' . $shipment->getId();
+    echo 'Weight: ' . $shipment->getWeight();
+    echo 'Width: ' . $shipment->getWidth();
+    echo 'Height: ' . $shipment->getHeight();
+}
+```
+Подробнее см. в [документации API.](https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/put-campaigns-id-orders-id-status-docpage/)
+
+##### Передача информации о коробках в заказе
+```php
+$orderProcessingClient = new \Yandex\Beru\Partner\Clients\OrderProcessingClient($clientId, $token);
+$campaignId = 125874;
+$orderid = 8030217;
+$shipmentId = 5057435;
+// Получаем список коробок
+$boxes = $orderProcessingClient->putInfoOrderBoxes($campaignId, $orderid, $shipmentId, ["boxes" => [
+        [
+            'fulfilmentId' => '8152422-1',
+            'weight' => 1000,
+            'width' => 12,
+            'height' => 22,
+            'depth' => 23,
+            'items' => [
+                [
+                    'id' => 13456974,
+                    'count' => 1,
+                ]
+            ]
+        ]
+    ],
+
+]);
+// Информация о коробке
+foreach ($boxes as $box) {
+    echo "Id: " . $box->getId();
+    echo "Weight: " . $box->getWeight();
+    echo "Depth: " . $box->getDepth();
+    // Получаем список товаров в коробке
+    $items = $box->getItems();
+    foreach ($items as $item) {
+        echo "Id: " . $item->getId();
+        echo "Count: " . $item->getCount();
+    }
+}
+```
+Подробнее см. в [документации API.](https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/put-campaigns-id-orders-id-delivery-shipments-id-boxes-docpage/)
+
+##### Информация о заказах
+```php
+$orderProcessingClient = new \Yandex\Beru\Partner\Clients\OrderProcessingClient($clientId, $token);
+$campaignId = 125874;
+// Получаем информацию о запрашиваемых заказах
+$getOrders = $orderProcessingClient->getOrders($campaignId);
+// Сводка по результатам поиска
+$pager = $getOrders->getPager();
+// Получаем массив заказов
+$orders = $getOrders->getOrders();
+foreach ($orders as $order) {
+    // Описание заказа
+    echo 'Id: ' . $order->getId();
+    echo 'ItemsTotal: ' . $order->getItemsTotal();
+    echo 'Total: ' . $order->getTotal();
+    echo 'Status: ' . $order->getStatus();
+    // Получаем список товаров в заказе
+    $items = $order->getItems();
+    foreach ($items as $item) {
+        echo 'Id: ' . $item->getId();
+        echo 'OfferId: ' . $item->getOfferId();
+        echo 'Price: ' . $item->getPrice();
+    }
+    //Информация о доставке
+    $delivery = $order->getDelivery();
+
+    $region = $delivery->getRegion();
+    $parentRegion = $region->getParent();
+    //Список посылок
+    $shipments = $delivery->getShipments();
+    foreach ($shipments as $shipment) {
+        $items = $shipment->getItems();
+        echo 'Id: ' . $shipment->getId();
+        echo 'Weight: ' . $shipment->getWeight();
+        echo 'Width: ' . $shipment->getWidth();
+        echo 'Height: ' . $shipment->getHeight();
+    }
+}
+```
+Подробнее см. в [документации API.](https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/get-campaigns-id-orders-docpage/)
+
+##### Информация о заказе
+```php
+$orderProcessingClient = new \Yandex\Beru\Partner\Clients\OrderProcessingClient($clientId, $token);
+$campaignId = 125874;
+$orderid = 8030217;
+// Получаем информацию о заказе
+$order = $orderProcessingClient->getOrder($campaignId, $orderid);
+echo 'Id: ' . $order->getId();
+echo 'ItemsTotal: ' . $order->getItemsTotal();
+echo 'Total: ' . $order->getTotal();
+echo 'Status: ' . $order->getStatus();
+// Получаем список товаров в заказе
+$items = $order->getItems();
+foreach ($items as $item) {
+    echo 'Id: ' . $item->getId();
+    echo 'OfferId: ' . $item->getOfferId();
+    echo 'Price: ' . $item->getPrice();
+}
+//Информация о доставке
+$delivery = $order->getDelivery();
+$region = $delivery->getRegion();
+$parentRegion = $region->getParent();
+//Список посылок
+$shipments = $delivery->getShipments();
+foreach ($shipments as $shipment) {
+    $items = $shipment->getItems();
+    echo 'Id: ' . $shipment->getId();
+    echo 'Weight: ' . $shipment->getWeight();
+    echo 'Width: ' . $shipment->getWidth();
+    echo 'Height: ' . $shipment->getHeight();
+}
+```
+Подробнее см. в [документации API.](https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/get-campaigns-id-orders-id-docpage/)
+
 ##### Справочник служб доставки
 ```php
 $orderProcessingClient = new \Yandex\Beru\Partner\Clients\OrderProcessingClient($clientId, $token);
@@ -443,7 +596,6 @@ $deliveryServices = $orderProcessingClient->getDeliveryService();
 foreach ($deliveryServices as $deliveryService) {
     echo 'Id: ' . $deliveryService->getId();
     echo 'Name: ' . $deliveryService->getName();
-}
 }
 ```
 Подробнее см. в [документации API.](https://yandex.ru/dev/market/partner-marketplace-cd/doc/dg/reference/get-delivery-services-docpage/)
