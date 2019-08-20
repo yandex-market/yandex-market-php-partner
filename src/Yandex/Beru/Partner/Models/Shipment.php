@@ -7,10 +7,14 @@ use Yandex\Common\Model;
 class Shipment extends Model
 {
     protected $id;
-    protected $boxes;
+    protected $weight;
+    protected $width;
+    protected $height;
+    protected $depth;
+    protected $items;
 
     protected $mappingClasses = [
-        'boxes' => Boxes::class,
+        'items' => Items::class,
     ];
 
     /**
@@ -22,10 +26,42 @@ class Shipment extends Model
     }
 
     /**
-     * @return array
+     * @return int
      */
-    public function getBoxes()
+    public function getWeight()
     {
-        return $this->boxes;
+        return $this->weight;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDepth()
+    {
+        return $this->depth;
+    }
+
+    /**
+     * @return Items
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 }

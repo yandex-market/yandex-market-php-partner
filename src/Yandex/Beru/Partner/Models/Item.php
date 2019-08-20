@@ -7,6 +7,7 @@ use Yandex\Common\Model;
 class Item extends Model
 {
     protected $count;
+    protected $id;
     protected $offerId;
 
     /**
@@ -20,6 +21,11 @@ class Item extends Model
     /**
      * @return string
      */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getOfferId()
     {
         return $this->offerId;
