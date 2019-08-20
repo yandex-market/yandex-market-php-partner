@@ -1,0 +1,19 @@
+{
+  "result":
+  {
+    "hiddenOffers":
+    [
+      {
+        "comment": "До поставки новой партии товара",
+        "marketSku": 345723894,
+        "ttlInHours": 1
+      }
+    ],
+    "total": 3,
+    "paging":
+    {
+      "nextPageToken": "Hj0gP0AQUIID01IE"
+    }
+  },
+  "status": "OK"
+}

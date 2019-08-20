@@ -1,0 +1,58 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "offerMappingEntries":
+    [
+      {
+        "offer":
+        {
+          "name": "STH32",
+          "shopSku": "Vendor000002.100126194700",
+          "category": "Наушники и Bluetooth-гарнитуры",
+          "barcodes":
+          [
+            "123456789012"
+          ],
+          "processingState":
+          {
+            "status": "READY"
+          }
+        },
+        "mapping":
+        {
+          "marketSku": 100126194700
+        }
+      },
+      {
+        "offer":
+        {
+          "name": "Поющий горшок",
+          "shopSku": "Vendor000002.100126179065",
+          "category": "Горшки и сиденья",
+          "barcodes":
+          [
+            "123456789012"
+          ],
+          "processingState":
+          {
+            "status": "READY"
+          }
+        },
+        "mapping":
+        {
+          "marketSku": 100126179065
+        },
+        "rejectedMapping":
+        {
+          "marketSku": 100354783940
+        }
+      }
+    ],
+    "paging":
+    {
+      "prevPageToken": "HTBDSD04OjggOCBC",
+      "nextPageToken": "bHVldG9vdGgtMzBA"
+    }
+  }
+}

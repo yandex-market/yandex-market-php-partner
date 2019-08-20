@@ -1,0 +1,25 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "offers":
+    [
+      {
+        "name": "Apple IPhone SE 128 GB rose gold",
+        "category": "смартфоны",
+        "vendor": "Apple",
+        "price": 24000,
+        "marketSku": 100131945878,
+        "marketSkuName": "Смартфон Apple iPhone SE 128GB розовое золото"
+      },
+      {
+        "name": "Apple IPhone SE 32 GB rose gold",
+        "category": "смартфоны",
+        "vendor": "Apple",
+        "price": 19000,
+        "marketSku": 100175499838,
+        "marketSkuName": "Смартфон Apple iPhone SE 32GB розовое золото"
+      }
+    ]
+  }
+}
