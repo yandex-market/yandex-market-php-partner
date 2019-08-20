@@ -12,6 +12,7 @@ class Box extends Model
     protected $height;
     protected $depth;
     protected $items;
+    protected $fulfilmentId;
 
     protected $mappingClasses = [
         'items' => Items::class,
@@ -63,5 +64,13 @@ class Box extends Model
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFulfilmentId()
+    {
+        return $this->fulfilmentId;
     }
 }
