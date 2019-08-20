@@ -21,6 +21,7 @@ class Order extends Model
     protected $delivery;
     protected $items;
     protected $notes;
+    protected $subsidyTotal;
 
     protected $mappingClasses = [
         'delivery' => Delivery::class,
@@ -145,5 +146,13 @@ class Order extends Model
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSubsidyTotal()
+    {
+        return $this->subsidyTotal;
     }
 }
