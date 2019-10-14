@@ -192,6 +192,14 @@ class StatisticClientTest extends TestCase
                 $jsonObj->offersStats->offerStats[$i]->url,
                 $offerStat->getUrl()
             );
+            $this->assertEquals(
+                $jsonObj->offersStats->offerStats[$i]->feedId,
+                $offerStat->getFeedId()
+            );
+            $this->assertEquals(
+                $jsonObj->offersStats->offerStats[$i]->offerId,
+                $offerStat->getOfferId()
+            );
         }
     }
 }
