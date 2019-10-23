@@ -14,6 +14,8 @@ class Stat extends Model
     protected $detailedStats;
     protected $offerName;
     protected $url;
+    protected $feedId;
+    protected $offerId;
 
     protected $mappingClasses = [
         'detailedStats' => DetailedStats::class,
@@ -81,5 +83,21 @@ class Stat extends Model
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+    * @return int
+    */
+    public function getFeedId()
+    {
+        return $this->feedId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOfferId()
+    {
+        return $this->offerId;
     }
 }
