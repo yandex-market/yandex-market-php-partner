@@ -24,6 +24,8 @@ class Offer extends Model
     protected $shippingCost;
     protected $shopName;
     protected $shopRating;
+    protected $cutPrice;
+    protected $blocked;
 
     /**
      * @return double
@@ -167,5 +169,21 @@ class Offer extends Model
     public function getShopRating()
     {
         return $this->shopRating;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getCutPrice()
+    {
+        return $this->cutPrice;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getBlocked()
+    {
+        return $this->blocked;
     }
 }
