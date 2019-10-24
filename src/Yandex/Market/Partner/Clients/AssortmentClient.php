@@ -128,6 +128,8 @@ class AssortmentClient extends Client
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @deprecated
      */
     public function getFeedCategories($campaignId, $feedId, array $params = [])
     {
@@ -238,5 +240,17 @@ class AssortmentClient extends Client
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
         return new PostResponse($decodedResponseBody);
+    }
+
+    public function getFeedCategoriesPaged($campaignId, $feedId, array $params = [])
+    {
+        $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/categories.json';
+        $resource .= '?' . $this->buildQueryString($params);
+
+        $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
+
+        $decodedResponseBody = $this->getDecodedBody($response->getBody());
+
+        return new GetFeedCategoriesResponse($decodedResponseBody);
     }
 }
