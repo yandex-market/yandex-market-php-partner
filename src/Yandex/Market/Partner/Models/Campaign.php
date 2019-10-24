@@ -6,6 +6,29 @@ use Yandex\Common\Model;
 
 class Campaign extends Model
 {
+    const CAMPAIGN_STATE_1 = 1;
+    const CAMPAIGN_STATE_2 = 2;
+    const CAMPAIGN_STATE_3 = 3;
+    const CAMPAIGN_STATE_4 = 4;
+
+    const STATE_REASON_5 = 5;
+    const STATE_REASON_6 = 6;
+    const STATE_REASON_7 = 7;
+    const STATE_REASON_9 = 9;
+    const STATE_REASON_11 = 11;
+    const STATE_REASON_12 = 12;
+    const STATE_REASON_13 = 13;
+    const STATE_REASON_15 = 15;
+    const STATE_REASON_16 = 16;
+    const STATE_REASON_20 = 20;
+    const STATE_REASON_21 = 21;
+    const STATE_REASON_24 = 24;
+    const STATE_REASON_25 = 25;
+    const STATE_REASON_26 = 26;
+    const STATE_REASON_27 = 27;
+    const STATE_REASON_28 = 28;
+    const STATE_REASON_29= 29;
+
     protected $domain;
     protected $id;
     protected $state;
@@ -36,7 +59,7 @@ class Campaign extends Model
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getStateReasons()
     {
