@@ -6,6 +6,10 @@ use Yandex\Common\Model;
 
 class Content extends Model
 {
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_NA = 'NA';
+    const STATUS_OK = 'OK';
+
     public $rejectedOffersCount;
     public $status;
     public $totalOffersCount;
@@ -40,7 +44,7 @@ class Content extends Model
     }
 
     /**
-     * @return ContentError
+     * @return ContentError|null
      */
     public function getError()
     {
