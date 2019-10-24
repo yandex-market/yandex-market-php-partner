@@ -3,9 +3,18 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class IndexLogRecord extends Model
 {
+    const INDEX_TYPE_DIFF = 'DIFF';
+    const INDEX_TYPE_FAST_PRICE = 'FAST_PRICE';
+    const INDEX_TYPE_FULL = 'FULL';
+
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_WARNING = 'WARNING';
+    const STATUS_OK = 'OK';
+
     public $downloadTime;
     public $fileTime;
     public $generationId;
@@ -15,10 +24,21 @@ class IndexLogRecord extends Model
     public $error;
     public $offers;
 
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
     protected $mappingClasses = [
         'offers' => IndexLogOffer::class,
         'error' => ItemError::class,
     ];
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return String
@@ -69,7 +89,7 @@ class IndexLogRecord extends Model
     }
 
     /**
-     * @return ItemError
+     * @return ItemError|null
      */
     public function getError()
     {
@@ -82,5 +102,29 @@ class IndexLogRecord extends Model
     public function getOffers()
     {
         return $this->offers;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getDownloadTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getDownloadTime());
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getFileTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getFileTime());
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getPublishedTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getPublishedTime());
     }
 }
