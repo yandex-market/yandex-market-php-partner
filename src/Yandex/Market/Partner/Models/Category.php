@@ -36,7 +36,7 @@ class Category extends Model
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getParentId()
     {
