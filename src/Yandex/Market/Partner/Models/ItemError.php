@@ -6,6 +6,9 @@ use Yandex\Common\Model;
 
 class ItemError extends Model
 {
+    const TYPE_DOWNLOAD_ERROR = 'DOWNLOAD_ERROR';
+    const TYPE_DOWNLOAD_HTTP_ERROR = 'DOWNLOAD_HTTP_ERROR';
+
     protected $httpStatusCode;
     protected $type;
     protected $description;
