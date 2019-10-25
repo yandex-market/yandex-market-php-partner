@@ -42,6 +42,10 @@ class GetModelOffersResponse extends Model
         return $this->models;
     }
 
+    /**
+     * @return ModelPrices|null;
+     * @deprecated
+     */
     public function getPrices()
     {
         return $this->prices;
