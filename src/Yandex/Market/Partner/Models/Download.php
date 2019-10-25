@@ -6,6 +6,10 @@ use Yandex\Common\Model;
 
 class Download extends Model
 {
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_NA = 'NA';
+    const STATUS_OK = 'OK';
+
     public $status;
     public $error;
 
@@ -22,7 +26,7 @@ class Download extends Model
     }
 
     /**
-     * @return ItemError
+     * @return ItemError|null
      */
     public function getError()
     {

@@ -3,6 +3,7 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class Feed extends Model
 {
@@ -18,6 +19,11 @@ class Feed extends Model
     protected $placement;
     protected $publication;
 
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
     protected $mappingClasses = [
         'content' => Content::class,
         'download' => Download::class,
@@ -25,6 +31,11 @@ class Feed extends Model
         'publication' => Publication::class,
     ];
 
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
     /**
      * @return String
      */
@@ -111,5 +122,13 @@ class Feed extends Model
     public function getPublication()
     {
         return $this->publication;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getUploadDateTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_PUBLIC, $this->getUploadDate());
     }
 }

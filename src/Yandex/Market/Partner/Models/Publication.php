@@ -6,6 +6,9 @@ use Yandex\Common\Model;
 
 class Publication extends Model
 {
+    const STATUS_NA = 'NA';
+    const STATUS_OK = 'OK';
+
     protected $status;
     protected $full;
     protected $priceAndStockUpdate;
