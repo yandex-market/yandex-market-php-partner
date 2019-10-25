@@ -1,27 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: klitvinov
- * Date: 23.11.18
- * Time: 10:22
- */
 
 namespace Yandex\Market\Partner\Models\Response;
 
-
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Models\Common\Errors;
 use Yandex\Market\Partner\Models\HiddenOffers;
 
 class HiddenOffersResponse extends Model
 {
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_OK = 'OK';
+
     protected $status;
-    protected $total;
-    protected $paging;
-    protected $hiddenOffers;
+    protected $result;
+    protected $errors;
 
     protected $mappingClasses = [
-        'hiddenOffers' => HiddenOffers::class
+        'result' => HiddenOffers::class,
+        'errors' => Errors::class,
     ];
+
 
     /**
      * @return mixed
@@ -32,29 +30,19 @@ class HiddenOffersResponse extends Model
     }
 
     /**
-     * @return mixed
-     */
-    public function getTotal()
-    {
-        return $this->total['nextPageToken'];
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNextPageToken()
-    {
-        if (isset($this->paging['nextPageToken'])) {
-            return $this->paging['nextPageToken'];
-        }
-        return null;
-    }
-
-    /**
      * @return HiddenOffers
      */
     public function getHiddenOffers()
     {
-        return $this->hiddenOffers;
+        return $this->result;
     }
+
+    /**
+     * @return Errors|null
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
 }
