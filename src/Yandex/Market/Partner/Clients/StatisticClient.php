@@ -9,6 +9,10 @@ use Yandex\Market\Partner\Models\Stats;
 
 class StatisticClient extends Client
 {
+    const FIELDS_MOBILE = 'mobile';
+    const FIELDS_MODEL = 'model';
+    const FIELDS_SHOWS = 'shows';
+
     /**
      * Get stats for every requested period
      *
