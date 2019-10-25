@@ -42,6 +42,11 @@ class PriceClientTest extends TestCase
 
         $offers = $pricesResponse->getResult();
         $offersCount = $offers->count();
+        $total = $offers->getTotal();
+        $this->assertEquals(
+            $jsonObj->result->total,
+            $total
+        );
 
         $offer = $offers->current();
 
