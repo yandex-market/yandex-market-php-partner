@@ -3,6 +3,7 @@
 namespace Yandex\Market\Partner\Models\Response;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Models\Common\Pager;
 use Yandex\Market\Partner\Models\MarketModels;
 
 class GetModelInfoResponse extends Model
@@ -10,9 +11,11 @@ class GetModelInfoResponse extends Model
     protected $models;
     protected $currency;
     protected $regionId;
+    protected $pager;
 
     protected $mappingClasses = [
         'models' => MarketModels::class,
+        'pager' => Pager::class,
     ];
 
     /**
@@ -37,5 +40,13 @@ class GetModelInfoResponse extends Model
     public function getRegionId()
     {
         return $this->regionId;
+    }
+
+    /**
+     * @return Pager|null
+     */
+    public function getPager()
+    {
+        return $this->pager;
     }
 }
