@@ -285,7 +285,7 @@ class ModelClientTest extends TestCase
             ->method('sendRequest')
             ->will($this->returnValue($response));
 
-        $modelResponse = $mock->getModelsOffers(['regionId' => 215]);
+        $modelResponse = $mock->getModelsOffers(215, ['regionId' => 215]);
 
         $currency = $modelResponse->getCurrency();
         $regionId = $modelResponse->getRegionId();
