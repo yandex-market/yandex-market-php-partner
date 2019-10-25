@@ -93,10 +93,10 @@ class ModelClient extends Client
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelsInfo(array $params = [])
+    public function getModelsInfo(array $params = [], array $getParams = [])
     {
         $resource = 'models.json';
-
+        $resource .= '?' . $this->buildQueryString($getParams);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
