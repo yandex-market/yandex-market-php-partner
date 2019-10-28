@@ -3,9 +3,16 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class Bid extends Model
 {
+    const STATUS_ERROR_INVALID_BID_VALUE = 'ERROR_INVALID_BID_VALUE';
+    const STATUS_ERROR_OFFER_NOT_FOUND = 'ERROR_OFFER_NOT_FOUND';
+    const STATUS_UNKNOWN = 'UNKNOWN';
+    const STATUS_INDEXING = 'INDEXING';
+    const STATUS_PUBLISHED = 'PUBLISHED';
+
     protected $bid;
     protected $cbid;
     protected $dontPullUpBids;
@@ -18,14 +25,27 @@ class Bid extends Model
     protected $minBid;
     protected $minCbid;
     protected $name;
+    protected $search;
 
     protected $modelCard;
     protected $cardPricesCpo;
 
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
     protected $mappingClasses = [
         'modelCard' => ModelCard::class,
         'cardPricesCpo' => ModelCard::class,
+        'search' => Search::class,
     ];
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return double
@@ -44,7 +64,7 @@ class Bid extends Model
     }
 
     /**
-     * @return ModelCard
+     * @return ModelCard|null
      */
     public function getModelCard()
     {
@@ -52,13 +72,12 @@ class Bid extends Model
     }
 
     /**
-     * @return ModelCard
+     * @return ModelCard|null
      */
     public function getCardPricesCpo()
     {
         return $this->cardPricesCpo;
     }
-
 
     /**
      * @return string
@@ -138,5 +157,21 @@ class Bid extends Model
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getModifiedTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getModified());
+    }
+
+    /**
+     * @return Search|null
+     */
+    public function getSearch()
+    {
+        return $this->search;
     }
 }

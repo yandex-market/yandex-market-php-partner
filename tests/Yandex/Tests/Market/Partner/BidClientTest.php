@@ -32,30 +32,31 @@ class BidClientTest extends TestCase
             ->method('sendRequest')
             ->will($this->returnValue($response));
 
-        $bids = $mock->getBids(2222);
+        $getBids =  $mock->getBids(2222);
+        $bids = $getBids->getBids(2222);
         $bidsCount = $bids->count();
 
         $bid = $bids->current();
 
         for ($i = 0; $i < $bidsCount; $i++) {
             $this->assertEquals(
-                $jsonObj->bids[$i]->dontPullUpBids,
+                $jsonObj->result->bids[$i]->dontPullUpBids,
                 $bid->getDontPullUpBids()
             );
             $this->assertEquals(
-                $jsonObj->bids[$i]->feedId,
+                $jsonObj->result->bids[$i]->feedId,
                 $bid->getFeedId()
             );
             $this->assertEquals(
-                $jsonObj->bids[$i]->modified,
+                $jsonObj->result->bids[$i]->modified,
                 $bid->getModified()
             );
             $this->assertEquals(
-                $jsonObj->bids[$i]->offerId,
+                $jsonObj->result->bids[$i]->offerId,
                 $bid->getOfferId()
             );
             $this->assertEquals(
-                $jsonObj->bids[$i]->status,
+                $jsonObj->result->bids[$i]->status,
                 $bid->getStatus()
             );
 
@@ -76,29 +77,35 @@ class BidClientTest extends TestCase
             ->method('sendRequest')
             ->will($this->returnValue($response));
 
-        $bids = $mock->setBids(2222, ['bids' => [
+        $setBids = $mock->setBids(2222, ['bids' => [
             ['cbid' => 1.2, 'bid' => 1.3],
             ['offerName' => 'testOffer'],
         ]]);
+
+        $bids = $setBids->getBids();
 
         $bidsCount = $bids->count();
         $bid = $bids->current();
 
         for ($i = 0; $i < $bidsCount; $i++) {
+            if(isset($jsonObj->result->bidsSet[$i]->bid)) {
+                $this->assertEquals(
+                    $jsonObj->result->bidsSet[$i]->bid,
+                    $bid->getBid()
+                );
+            }
+            if(isset($jsonObj->result->bidsSet[$i]->error)) {
+                $this->assertEquals(
+                    $jsonObj->result->bidsSet[$i]->error,
+                    $bid->getError()
+                );
+            }
             $this->assertEquals(
-                $jsonObj->bidsSet[$i]->bid,
-                $bid->getBid()
-            );
-            $this->assertEquals(
-                $jsonObj->bidsSet[$i]->cbid,
-                $bid->getCbid()
-            );
-            $this->assertEquals(
-                $jsonObj->bidsSet[$i]->feedId,
+                $jsonObj->result->bidsSet[$i]->feedId,
                 $bid->getFeedId()
             );
             $this->assertEquals(
-                $jsonObj->bidsSet[$i]->offerId,
+                $jsonObj->result->bidsSet[$i]->offerId,
                 $bid->getOfferId()
             );
 
@@ -119,55 +126,56 @@ class BidClientTest extends TestCase
             ->method('sendRequest')
             ->will($this->returnValue($response));
 
-        $recommendedBids = $mock->getRecommendedBids(2222);
+        $getRecommendedBids = $mock->getRecommendedBids(2222);
+        $recommendedBids = $getRecommendedBids->getBids();
         $recommendedCount = $recommendedBids->count();
 
         $bid = $recommendedBids->current();
 
         for ($i = 0; $i < $recommendedCount; $i++) {
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->bid,
+                $jsonObj->result->recommendations[$i]->bid,
                 $bid->getBid()
             );
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->cbid,
-                $bid->getCbid()
+                $jsonObj->result->recommendations[$i]->dontPullUpBids,
+                $bid->getDontPullUpBids()
             );
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->feedId,
+                $jsonObj->result->recommendations[$i]->feedId,
                 $bid->getFeedId()
             );
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->minBid,
+                $jsonObj->result->recommendations[$i]->minBid,
                 $bid->getMinBid()
             );
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->minCbid,
-                $bid->getMinCbid()
-            );
-            $this->assertEquals(
-                $jsonObj->recommendations[$i]->offerId,
+                $jsonObj->result->recommendations[$i]->offerId,
                 $bid->getOfferId()
             );
 
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->modelCard->currentPosAll,
+                $jsonObj->result->recommendations[$i]->modelCard->currentPosAll,
                 $bid->getModelCard()->getCurrentPosAll()
             );
             $this->assertEquals(
-                $jsonObj->recommendations[$i]->modelCard->currentPosTop,
+                $jsonObj->result->recommendations[$i]->modelCard->currentPosTop,
                 $bid->getModelCard()->getCurrentPosTop()
             );
 
 
-            $posRecommendations = $jsonObj->recommendations[$i]->modelCard->posRecommendations;
+            $posRecommendations = $jsonObj->result->recommendations[$i]->modelCard->posRecommendations;
             $posRecommendationsObj = $bid->getModelCard()->getPosRecommendations();
 
-            $y = 1;
+            $y = 0;
             foreach ($posRecommendations as $posRecommendation) {
                 $this->assertEquals(
-                    $posRecommendation->cbid,
-                    $posRecommendationsObj[$y]['cbid']
+                    $posRecommendation->bid,
+                    $posRecommendationsObj[$y]['bid']
+                );
+                $this->assertEquals(
+                    $posRecommendation->pos,
+                    $posRecommendationsObj[$y]['pos']
                 );
 
                 $y++;
@@ -237,7 +245,8 @@ class BidClientTest extends TestCase
             ->method('sendRequest')
             ->will($this->returnValue($response));
 
-        $settings = $mock->getPopularRecommendedBidsMarketSearch(2222);
+        $getPopularRecommendedBidsMarketSearch = $mock->getPopularRecommendedBidsMarketSearch(2222);
+        $settings = $getPopularRecommendedBidsMarketSearch->getBids();
         $settingsCount = $settings->count();
 
         $setting = $settings->current();
@@ -248,20 +257,12 @@ class BidClientTest extends TestCase
                 $setting->getBid()
             );
             $this->assertEquals(
-                $jsonObj->result->topRecommendations[$i]->cbid,
-                $setting->getCbid()
-            );
-            $this->assertEquals(
                 $jsonObj->result->topRecommendations[$i]->feedId,
                 $setting->getFeedId()
             );
             $this->assertEquals(
                 $jsonObj->result->topRecommendations[$i]->minBid,
                 $setting->getMinBid()
-            );
-            $this->assertEquals(
-                $jsonObj->result->topRecommendations[$i]->minCbid,
-                $setting->getMinCbid()
             );
             $this->assertEquals(
                 $jsonObj->result->topRecommendations[$i]->offerId,
@@ -272,6 +273,55 @@ class BidClientTest extends TestCase
                 $setting->getName()
             );
             $setting = $settings->next();
+        }
+    }
+
+    public function testSetRecommendationsBids()
+    {
+        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/setRecommendationsBids.json');
+        $jsonObj = json_decode($json);
+        $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
+
+        $mock = $this->getMockBuilder(BidClient::class)
+            ->setMethods(['sendRequest'])
+            ->getMock();
+        $mock->expects($this->any())
+            ->method('sendRequest')
+            ->will($this->returnValue($response));
+
+        $setBids = $mock->setRecommendationsBids(2222, ['bids' => [
+            ['cbid' => 1.2, 'bid' => 1.3],
+            ['offerName' => 'testOffer'],
+        ]]);
+
+        $bids = $setBids->getBids();
+
+        $bidsCount = $bids->count();
+        $bid = $bids->current();
+
+        for ($i = 0; $i < $bidsCount; $i++) {
+            if(isset($jsonObj->result->bidsSet[$i]->bid)) {
+                $this->assertEquals(
+                    $jsonObj->result->bidsSet[$i]->bid,
+                    $bid->getBid()
+                );
+            }
+            if(isset($jsonObj->result->bidsSet[$i]->error)) {
+                $this->assertEquals(
+                    $jsonObj->result->bidsSet[$i]->error,
+                    $bid->getError()
+                );
+            }
+            $this->assertEquals(
+                $jsonObj->result->bidsSet[$i]->feedId,
+                $bid->getFeedId()
+            );
+            $this->assertEquals(
+                $jsonObj->result->bidsSet[$i]->offerId,
+                $bid->getOfferId()
+            );
+
+            $bid = $bids->next();
         }
     }
 }
