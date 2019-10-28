@@ -484,4 +484,56 @@ class OutletClientTest extends TestCase
             $response->getStatus()
         );
     }
+
+    public function testGetOutletsLicenses()
+    {
+        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/getOutletsLicenses.json');
+        $jsonObj = json_decode($json);
+        $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
+
+        $mock = $this->getMockBuilder(OutletClient::class)
+            ->setMethods(['sendRequest'])
+            ->getMock();
+        $mock->expects($this->any())
+            ->method('sendRequest')
+            ->will($this->returnValue($response));
+
+        $getOutletsLicenses = $mock->getOutletsLicenses(1111);
+        $licenses = $getOutletsLicenses->getLicenses();
+        $license = $licenses->current();
+        $licensesCount = $licenses->count();
+
+        for ($i = 0; $i < $licensesCount; $i++) {
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->id,
+                $license->getId()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->outletId,
+                $license->getOutletId()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->licenseType,
+                $license->getLicenseType()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->number,
+                $license->getNumber()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->dateOfIssue,
+                $license->getDateOfIssue()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->dateOfExpiry,
+                $license->getDateOfExpiry()
+            );
+            $this->assertEquals(
+                $jsonObj->result->licenses[$i]->checkStatus,
+                $license->getCheckStatus()
+            );
+
+            $license = $licenses->next();
+        }
+    }
 }
