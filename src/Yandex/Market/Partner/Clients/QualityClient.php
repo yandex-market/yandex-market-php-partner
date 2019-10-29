@@ -12,6 +12,9 @@ use Yandex\Market\Partner\Models\Tickets;
 
 class QualityClient extends Client
 {
+    const ACTUAL_TYPE_0 = 0;
+    const ACTUAL_TYPE_1 = 1;
+
     /**
      * Get campaign tickets
      *
@@ -113,7 +116,7 @@ class QualityClient extends Client
      */
     public function fixError($campaignId, $ticketId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/tickets/' . $ticketId . '.json';
+        $resource = 'campaigns/' . $campaignId . '/tickets/' . $ticketId . 'fix.json';
 
         $response = $this->sendRequest(
             'POST',
