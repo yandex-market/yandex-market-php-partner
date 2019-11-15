@@ -6,8 +6,11 @@ use Yandex\Common\ObjectModel;
 
 class OfferPrices extends ObjectModel
 {
+    protected $total;
+
     public function __construct(array $data = [])
     {
+        $this->total = $data['total'];
         parent::__construct($data['offers']);
     }
 
@@ -42,5 +45,13 @@ class OfferPrices extends ObjectModel
     public function current()
     {
         return parent::current();
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 }

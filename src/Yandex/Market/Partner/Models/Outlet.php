@@ -6,6 +6,20 @@ use Yandex\Common\Model;
 
 class Outlet extends Model
 {
+    const STATUS_AT_MODERATION = 'AT_MODERATION';
+    const STATUS_AT_FAILED = 'FAILED';
+    const STATUS_AT_MODERATED = 'MODERATED';
+    const STATUS_AT_NONMODERATED = 'NONMODERATED';
+
+    const TYPE_DEPOT = 'DEPOT';
+    const TYPE_MIXED = 'MIXED';
+    const TYPE_NOT_DEFINED = 'NOT_DEFINED';
+    const TYPE_RETAIL = 'RETAIL';
+
+    const VISIBILITY_HIDDEN = 'HIDDEN';
+    const VISIBILITY_UNKNOWN = 'UNKNOWN';
+    const VISIBILITY_VISIBLE = 'VISIBLE';
+
     protected $coords;
     protected $id;
     protected $isMain;
@@ -110,6 +124,7 @@ class Outlet extends Model
 
     /**
      * @return bool
+     * @deprecated
      */
     public function getIsBookNow()
     {
@@ -118,6 +133,7 @@ class Outlet extends Model
 
     /**
      * @return string
+     * @deprecated
      */
     public function getShopOutletId()
     {
@@ -126,6 +142,7 @@ class Outlet extends Model
 
     /**
      * @return string
+     * @deprecated
      */
     public function getWorkingTime()
     {
@@ -165,13 +182,16 @@ class Outlet extends Model
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getEmails()
     {
         return $this->emails;
     }
 
+    /**
+     * @return string[]
+     */
     public function getPhones()
     {
         return $this->phones;

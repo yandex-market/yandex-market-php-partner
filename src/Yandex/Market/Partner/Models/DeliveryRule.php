@@ -79,6 +79,7 @@ class DeliveryRule extends Model
 
     /**
      * @return int
+     * @deprecated
      */
     public function getDateSwitchHour()
     {
@@ -87,6 +88,7 @@ class DeliveryRule extends Model
 
     /**
      * @return double
+     * @deprecated
      */
     public function getPriceFrom()
     {
@@ -95,6 +97,7 @@ class DeliveryRule extends Model
 
     /**
      * @return double
+     * @deprecated
      */
     public function getPriceTo()
     {
@@ -103,6 +106,7 @@ class DeliveryRule extends Model
 
     /**
      * @return string
+     * @deprecated
      */
     public function getShipperHumanReadableId()
     {
@@ -111,6 +115,7 @@ class DeliveryRule extends Model
 
     /**
      * @return int
+     * @deprecated
      */
     public function getShipperId()
     {
@@ -119,6 +124,7 @@ class DeliveryRule extends Model
 
     /**
      * @return string
+     * @deprecated
      */
     public function getShipperName()
     {
@@ -127,6 +133,7 @@ class DeliveryRule extends Model
 
     /**
      * @return bool
+     * @deprecated
      */
     public function getWorkInHoliday()
     {

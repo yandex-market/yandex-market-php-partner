@@ -29,7 +29,7 @@ class HiddenOffersClient extends Client
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        return new HiddenOffersResponse($decodedResponseBody['result']);
+        return new HiddenOffersResponse($decodedResponseBody);
     }
 
     /**

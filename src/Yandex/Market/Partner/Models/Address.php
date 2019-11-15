@@ -82,6 +82,7 @@ class Address extends Model
 
     /**
      * @return string
+     * @deprecated
      */
     public function getCity()
     {

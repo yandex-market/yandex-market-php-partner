@@ -8,6 +8,7 @@ class IndexLog extends Model
 {
     protected $feed;
     protected $indexLogRecords;
+    protected $total;
 
     protected $mappingClasses = [
         'indexLogRecords' => IndexLogRecords::class,
@@ -27,5 +28,13 @@ class IndexLog extends Model
     public function getIndexLogRecords()
     {
         return $this->indexLogRecords;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 }

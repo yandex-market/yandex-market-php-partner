@@ -1,0 +1,18 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "licenses":
+    [
+      {
+        "id": 14,
+        "outletId": 171819,
+        "licenseType": "ALCOHOL",
+        "number": "01АБВ23456789",
+        "dateOfIssue": "2017-11-13T00:00:00+03:00",
+        "dateOfExpiry": "2022-11-20T00:00:00+03:00",
+        "checkStatus": "SUCCESS"
+      }
+    ]
+  }
+}

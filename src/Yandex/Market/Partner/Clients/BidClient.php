@@ -3,8 +3,7 @@
 
 namespace Yandex\Market\Partner\Clients;
 
-use Yandex\Market\Partner\Models\Bids;
-use Yandex\Market\Partner\Models\BidsSettings;
+use Exception;
 use Yandex\Market\Partner\Models\Response\BidsSettingsResponse;
 use Yandex\Market\Partner\Models\Response\GetBidsResponse;
 use Yandex\Market\Partner\Models\Response\GetPopularRecommendedBidsMarketResponse;
@@ -20,55 +19,62 @@ class BidClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-docpage/
      *
-     * @return Bids
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
+     * @param $campaignId
+     * @param array $params
+     * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getBids($campaignId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/bids.json';
+        try {
+            $resource = 'campaigns/' . $campaignId . '/auction/bids.json';
+            $response = $this->sendRequest(
+                'POST',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        $response = $this->sendRequest(
-            'POST',
-            $this->getServiceUrl($resource),
-            ['json' => $params]
-        );
+            return new GetBidsResponse($decodedResponseBody);
 
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        $getBidsResponse = new GetBidsResponse($decodedResponseBody);
-        return $getBidsResponse->getBids();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
-     * Get recommended Bids
+     *  Get recommended Bids
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-recommended-docpage/
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-recommended-market-search-docpage/
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-recommended-search-docpage/
      *
-     * @return Bids
+     * @param $campaignId
+     * @param array $params
+     * @param array $getParams
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRecommendedBids($campaignId, array $params = [])
+    public function getRecommendedBids($campaignId, array $params = [], array $getParams = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/bids/recommended.json';
+        try {
+            $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
+            $resource .= '?' . $this->buildQueryString($getParams);
+            $response = $this->sendRequest(
+                'POST',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        $response = $this->sendRequest(
-            'POST',
-            $this->getServiceUrl($resource),
-            ['json' => $params]
-        );
+            return new GetRecommendedBidsResponse($decodedResponseBody);
 
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        $getBidsSetResponse = new GetRecommendedBidsResponse($decodedResponseBody);
-        return $getBidsSetResponse->getBids();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -76,26 +82,30 @@ class BidClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-recommended-top-market-search-docpage/
      *
-     * @return Bids
+     * @param $campaignId
+     * @param array $params
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getPopularRecommendedBidsMarketSearch($campaignId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/bids/recommended/top/market-search.json';
+        try {
+            $resource = 'campaigns/' . $campaignId . '/bids/recommended/top/market-search.json';
+            $response = $this->sendRequest(
+                'POST',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        $response = $this->sendRequest(
-            'POST',
-            $this->getServiceUrl($resource),
-            ['json' => $params]
-        );
+            return new GetPopularRecommendedBidsMarketResponse($decodedResponseBody);
 
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        $getBidsSetResponse = new GetPopularRecommendedBidsMarketResponse($decodedResponseBody);
-        return $getBidsSetResponse->getBids();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /* PUT */
@@ -105,51 +115,120 @@ class BidClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-bids-docpage/
      *
-     * @return Bids
+     * @param $campaignId
+     * @param array $params
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function setBids($campaignId, array $params = [])
     {
-        $resource = 'campaigns/' . $campaignId . '/bids.json';
+        try {
+            $resource = 'campaigns/' . $campaignId . '/auction/bids.json';
+            $response = $this->sendRequest(
+                'PUT',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
-        $response = $this->sendRequest(
-            'PUT',
-            $this->getServiceUrl($resource),
-            ['json' => $params]
-        );
+            return new SetBidsResponse($decodedResponseBody);
 
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        $setBidsSetResponse = new SetBidsResponse($decodedResponseBody);
-        return $setBidsSetResponse->getBids();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /* GET */
 
     /**
-     * Get bids settings
+     * Get recommended bids setting
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-bids-settings-docpage/
      *
-     * @return BidsSettings
+     * @return string
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getBidsSettings($campaignId, array $params = [])
+    public function getBidsSettings($campaignId)
     {
-        $resource = 'campaigns/' . $campaignId . '/bids/settings.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        try {
+            $resource = 'campaigns/' . $campaignId . '/bids/settings.json';
+            $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
+            $getBidsSettingsResponse = new BidsSettingsResponse($decodedResponseBody);
 
-        $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
+            return $getBidsSettingsResponse->getSettings();
 
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
-        $getBidsSettingsResponse = new BidsSettingsResponse($decodedResponseBody);
-        return $getBidsSettingsResponse->getSettings();
+    /**
+     * Get bids settings
+     *
+     * @see https://yandex.ru/dev/market/partner/doc/dg/reference/post-campaigns-id-auction-recommendations-bids-search-docpage/
+     *
+     * @param $campaignId
+     * @param array $params
+     * @param array $getParams
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Yandex\Common\Exception\ForbiddenException
+     * @throws \Yandex\Common\Exception\UnauthorizedException
+     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
+     */
+    public function getRecommendationsBidsForYandexSearch($campaignId, array $params = [], array $getParams = [])
+    {
+        try {
+            $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
+            $resource .= '?' . $this->buildQueryString($getParams);
+            $response = $this->sendRequest(
+                'POST',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
+
+            return new GetRecommendedBidsResponse($decodedResponseBody);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * Set recommended bids
+     *
+     * @see https://yandex.ru/dev/market/partner/doc/dg/reference/put-campaigns-id-auction-recommendations-bids-docpage/
+     *
+     * @param $campaignId
+     * @param array $params
+     * @param array $getParams
+     * @return string|SetBidsResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function setRecommendationsBids($campaignId, array $params = [], array $getParams = [])
+    {
+        try {
+            $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
+            $resource .= '?' . $this->buildQueryString($getParams);
+            $response = $this->sendRequest(
+                'PUT',
+                $this->getServiceUrl($resource),
+                ['json' => $params]
+            );
+            $decodedResponseBody = $this->getDecodedBody($response->getBody());
+
+            return new SetBidsResponse($decodedResponseBody);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

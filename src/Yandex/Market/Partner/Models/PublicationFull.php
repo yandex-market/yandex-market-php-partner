@@ -3,11 +3,23 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class PublicationFull extends Model
 {
     protected $fileTime;
     protected $publishedTime;
+
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return String
@@ -23,5 +35,21 @@ class PublicationFull extends Model
     public function getPublishedTime()
     {
         return $this->publishedTime;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getFileTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getFileTime());
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getPublishedTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getPublishedTime());
     }
 }
