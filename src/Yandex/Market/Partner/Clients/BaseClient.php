@@ -75,7 +75,7 @@ class BaseClient extends Client
      * @param int   $campaignId
      * @param array $params
      *
-     * @return array
+     * @return string[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
@@ -111,7 +111,7 @@ class BaseClient extends Client
      */
     public function getCampaignsByLogin($login, array $params = [])
     {
-        $resource = 'campaigns/by_login/' . $login . '/login.json';
+        $resource = 'campaigns/by_login/' . $login . '/.json';
         $resource .= '?' . $this->buildQueryString($params);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));

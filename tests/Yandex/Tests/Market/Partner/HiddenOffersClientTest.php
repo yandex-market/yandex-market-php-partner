@@ -36,11 +36,25 @@ class HiddenOffersClientTest extends TestCase
         $offersResp = $mock->getInfo(2222);
 
         $status = $offersResp->getStatus();
-        $nextPageToken = $offersResp->getNextPageToken();
-        $total = $offersResp->getTotal();
+        $this->assertEquals(
+            $jsonObj->status,
+            $status
+        );
 
         $offers = $offersResp->getHiddenOffers();
         $offer = $offers->current();
+        $nextPageToken = $offers->getNextPageToken();
+        $total = $offers->getTotal();
+
+        $this->assertEquals(
+            $jsonObj->result->paging->nextPageToken,
+            $nextPageToken
+        );
+        $this->assertEquals(
+            $jsonObj->result->total,
+            $total
+        );
+
 
 
         for ($i = 0; $i < $offers->count(); $i++) {

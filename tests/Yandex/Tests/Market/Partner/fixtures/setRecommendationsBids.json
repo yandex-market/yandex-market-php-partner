@@ -1,0 +1,24 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "bidsSet":
+    [
+      {
+        "feedId": 30919,
+        "offerId": "239982",
+        "bid": 0.33
+      },
+      {
+        "feedId": 30919,
+        "offerId": "239983",
+        "bid": 0.27
+      },
+      {
+        "feedId": 30919,
+        "offerId": "239984",
+        "error": "OFFER_NOT_FOUND"
+      }
+    ]
+  }
+}

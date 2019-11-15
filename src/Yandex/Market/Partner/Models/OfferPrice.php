@@ -3,6 +3,7 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class OfferPrice extends Model
 {
@@ -14,6 +15,17 @@ class OfferPrice extends Model
     protected $mappingClasses = [
         'price' => Price::class,
     ];
+
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return int
@@ -45,5 +57,13 @@ class OfferPrice extends Model
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getUpdatedAtTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getUpdatedAt());
     }
 }

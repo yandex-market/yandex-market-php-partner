@@ -3,6 +3,7 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class Report extends Model
 {
@@ -19,6 +20,17 @@ class Report extends Model
     protected $opinionUrl;
     protected $qualityBonus;
     protected $qualityServiceRating;
+
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return int
@@ -122,5 +134,13 @@ class Report extends Model
     public function getQualityServiceRating()
     {
         return $this->qualityServiceRating;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getModificationTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getModificationTime());
     }
 }

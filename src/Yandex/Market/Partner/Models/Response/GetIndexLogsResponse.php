@@ -8,6 +8,9 @@ use Yandex\Market\Partner\Models\IndexLog;
 
 class GetIndexLogsResponse extends Model
 {
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_OK = 'OK';
+
     protected $indexLog;
     protected $status;
     protected $errors;
@@ -27,10 +30,18 @@ class GetIndexLogsResponse extends Model
     }
 
     /**
-     * @return IndexLog
+     * @return IndexLog|null
      */
     public function getResult()
     {
         return $this->result;
+    }
+
+    /**
+     * @return Errors|null
+     */
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }

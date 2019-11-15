@@ -3,9 +3,18 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class Stat extends Model
 {
+    const PLACE_GROUP_3 = 3;
+    const PLACE_GROUP_4 = 4;
+    const PLACE_GROUP_5 = 5;
+    const PLACE_GROUP_6 = 6;
+    const PLACE_GROUP_7 = 7;
+    const PLACE_GROUP_9 = 9;
+    const PLACE_GROUP_10 = 10;
+
     protected $clicks;
     protected $date;
     protected $placeGroup;
@@ -17,9 +26,20 @@ class Stat extends Model
     protected $feedId;
     protected $offerId;
 
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
     protected $mappingClasses = [
         'detailedStats' => DetailedStats::class,
     ];
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return int
@@ -62,7 +82,7 @@ class Stat extends Model
     }
 
     /**
-     * @return DetailedStats
+     * @return DetailedStats|null
      */
     public function getDetailedStats()
     {
@@ -99,5 +119,13 @@ class Stat extends Model
     public function getOfferId()
     {
         return $this->offerId;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getDateTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_PUBLIC, $this->getDate());
     }
 }

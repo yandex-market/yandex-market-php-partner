@@ -3,9 +3,18 @@
 namespace Yandex\Market\Partner\Models;
 
 use Yandex\Common\Model;
+use Yandex\Market\Partner\Data\DateType;
 
 class Ticket extends Model
 {
+    const CHECK_METHOD_1 = 1;
+    const CHECK_METHOD_2 = 2;
+    const CHECK_METHOD_3 = 3;
+    const CHECK_METHOD_4 = 4;
+
+    const STATUS_ERROR_0 = 0;
+    const STATUS_ERROR_1 = 1;
+
     protected $checkMethod;
     protected $errorCode;
     protected $errorFoundTime;
@@ -15,6 +24,17 @@ class Ticket extends Model
     protected $orderId;
     protected $status;
     protected $ticketId;
+
+    /**
+     * @var DateType
+     */
+    private $dateType;
+
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->dateType = new DateType();
+    }
 
     /**
      * @return int
@@ -86,5 +106,21 @@ class Ticket extends Model
     public function getTicketId()
     {
         return $this->ticketId;
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getFeedTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getFeedTime());
+    }
+
+    /**
+     * @return \DateTimeImmutable|false
+     */
+    public function getErrorFoundTimeTyped()
+    {
+        return $this->dateType->getDateTimeImmutable(DateType::FORMAT_USER, $this->getErrorFoundTime());
     }
 }

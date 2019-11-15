@@ -11,6 +11,16 @@ use Yandex\Common\ObjectModel;
  */
 class HiddenOffers extends ObjectModel
 {
+    protected $total;
+    protected $paging;
+
+    public function __construct($data = [])
+    {
+        $this->paging = $data['paging'];
+        $this->total = $data['total'];
+        parent::__construct($data['hiddenOffers']);
+    }
+
     /**
      * @param array|object $feed
      *
@@ -42,5 +52,23 @@ class HiddenOffers extends ObjectModel
     public function current()
     {
         return parent::current();
+    }
+    /**
+     * @return mixed
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNextPageToken()
+    {
+        if (isset($this->paging['nextPageToken'])) {
+            return $this->paging['nextPageToken'];
+        }
+        return null;
     }
 }

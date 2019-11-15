@@ -7,6 +7,9 @@ use Yandex\Market\Partner\Models\Common\Errors;
 
 class PostResponse extends Model
 {
+    const STATUS_ERROR = 'ERROR';
+    const STATUS_OK = 'OK';
+
     protected $errors;
     protected $status;
     protected $result;
@@ -16,7 +19,7 @@ class PostResponse extends Model
     ];
 
     /**
-     * @return Errors
+     * @return Errors|null
      */
     public function getErrors()
     {
@@ -32,7 +35,7 @@ class PostResponse extends Model
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getResult()
     {

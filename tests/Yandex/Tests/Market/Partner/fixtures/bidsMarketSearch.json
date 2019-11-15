@@ -5,10 +5,8 @@
     [
       {
         "bid": 0.12,
-        "cbid": 0.01,
         "feedId": 789101,
         "minBid": 0.12,
-        "minCbid": 0.01,
         "offerId": "123456",
         "name": "Lenovo G5045 80E301Q9RK black 15.6 HD E1-6010 / 2 Gb / 500 Gb / noDVD / W10",
         "queries":
@@ -137,10 +135,8 @@
       },
       {
         "bid": 0.13,
-        "cbid": 0.01,
         "feedId": 789101,
         "minBid": 0.13,
-        "minCbid": 0.01,
         "offerId": "112131",
         "name": "Компьютер C400008Ц-NORBEL Office Base ATI-Intel Core i3 4170 / H81M-P33 / 4 Gb / 500 Gb",
         "queries":
