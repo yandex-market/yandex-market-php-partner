@@ -112,17 +112,19 @@ class ModelClient extends Client
      * Get offers for several model
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-models-offers-docpage/
-     *
+     * @param $regionId
+     * @param array $params
+     * @param array $queryParams
      * @return GetModelOffersResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelsOffers($regionId, array $params = [])
+    public function getModelsOffers($regionId, array $params = [], array $queryParams = [])
     {
         $resource = 'models/offers.json?regionId=' . $regionId;
-
+        $resource .= '&' . $this->buildQueryString($queryParams);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
