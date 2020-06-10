@@ -1,0 +1,138 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "url": "https://passport.yandex.ru/passport?mode=subscribe&from=balance&retpath=https%3A%2F%2Fuser-balance.balance-mds-proxy.yandex.net%2Fpaypreview.xml%3Frequest_id%3D2917516867%26ref_service_id%3D11",
+    "requestId": 2917516867,
+    "parentPerson":
+    {
+      "clientId": 58658,
+      "name": "Иванов Иван Иванович",
+      "isAgency": false
+    },
+    "pcps":
+    [
+      {
+        "person":
+        {
+          "personId": 885193,
+          "name": "Иванов Иван Иванович",
+          "legalEntity": false,
+          "regionId": 225,
+          "resident": true
+        },
+        "paysyses":
+        [
+          {
+            "paysysId": 11101000,
+            "cc": "pc",
+            "name": "Яндекс.Деньги",
+            "paymentMethod": "yamoney_wallet",
+            "legalEntity": false,
+            "regionId": 225,
+            "resident": true,
+            "paymentLimit": "100000"
+          },
+          {
+            "paysysId": 11101052,
+            "cc": "wm_pm",
+            "name": "WebMoney (WMR)",
+            "paymentMethod": "webmoney_wallet",
+            "legalEntity": false,
+            "regionId": 225,
+            "resident": true,
+            "paymentLimit": 15000
+          },
+          {
+            "paysysId": 11101002,
+            "cc": "as",
+            "name": "Кредитной картой",
+            "paymentMethod": "card",
+            "legalEntity": false,
+            "regionId": 225,
+            "resident": true,
+            "paymentLimit": 49999.99
+          },
+          {
+            "paysysId": 11101001,
+            "cc": "ph",
+            "name": "Банк для физических лиц",
+            "paymentMethod": "bank",
+            "legalEntity": false,
+            "region-id": 225,
+            "resident": true
+          }
+        ]
+      },
+      {
+        "person":
+        {
+          "personId": 589850,
+          "name": "\"Рога и копыта\"",
+          "legalEntity": true,
+          "regionId": 225,
+          "resident": true
+        },
+        "paysyses":
+        [
+          {
+            "paysysId": 11101003,
+            "cc": "ur",
+            "name": "Банк для юридических лиц",
+            "paymentMethod": "bank",
+            "legalEntity": true,
+            "regionId": 225,
+            "resident": true
+          },
+          {
+            "paysysId": 11101033,
+            "cc": "cc_ur",
+            "name": "Кредитная карта (Юр. Лица)",
+            "paymentMethod": "card",
+            "legalEntity": true,
+            "regionId": 225,
+            "resident": true,
+            "paymentLimit": 49999.99
+          }
+        ]
+      },
+      {
+        "person":
+        {
+          "personId": 589850,
+          "name": "\"Рога и копыта\"",
+          "legalEntity": true,
+          "regionId": 225,
+          "resident": true
+        },
+        "contract":
+        {
+          "contractId": 9837306,
+          "externalId": "283968/14"
+        },
+        "paysyses":
+        [
+          {
+            "paysysId": 11101003,
+            "cc": "ur",
+            "name": "Банк для юридических лиц",
+            "paymentMethod": "bank",
+            "legalEntity": true,
+            "regionId": 225,
+            "resident": true
+          },
+          {
+            "paysysId": 11101033,
+            "cc": "cc_ur",
+            "name": "Кредитная карта (Юр. Лица)",
+            "paymentMethod": "card",
+            "legalEntity": true,
+            "regionId": 225,
+            "resident": true,
+            "paymentLimit": 49999.99
+          }
+        ]
+      }
+    ]
+  }
+}

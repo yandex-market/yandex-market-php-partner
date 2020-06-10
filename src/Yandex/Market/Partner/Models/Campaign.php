@@ -27,12 +27,13 @@ class Campaign extends Model
     const STATE_REASON_26 = 26;
     const STATE_REASON_27 = 27;
     const STATE_REASON_28 = 28;
-    const STATE_REASON_29= 29;
+    const STATE_REASON_29 = 29;
 
     protected $domain;
     protected $id;
     protected $state;
     protected $stateReasons;
+    protected $clientId;
 
     /**
      * @return string
@@ -64,5 +65,13 @@ class Campaign extends Model
     public function getStateReasons()
     {
         return $this->stateReasons;
+    }
+
+    /**
+     * @return int
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
     }
 }

@@ -1,0 +1,16 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "invoices":
+    [
+      {
+        "invoiceId": 538318686,
+        "externalId": "Б-3835400001-1",
+        "date": "2020-03-03T19:11:04+03:00",
+        "currency": "RUR",
+        "totalSum": 600.00
+      }
+    ]
+  }
+}
