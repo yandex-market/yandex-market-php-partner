@@ -29,6 +29,7 @@ class Campaign extends Model
     const STATE_REASON_28 = 28;
     const STATE_REASON_29 = 29;
 
+
     protected $domain;
     protected $id;
     protected $state;
