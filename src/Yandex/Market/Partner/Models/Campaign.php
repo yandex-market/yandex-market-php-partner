@@ -33,6 +33,7 @@ class Campaign extends Model
     protected $id;
     protected $state;
     protected $stateReasons;
+    protected $clientId;
 
     /**
      * @return string
@@ -64,5 +65,13 @@ class Campaign extends Model
     public function getStateReasons()
     {
         return $this->stateReasons;
+    }
+
+    /**
+     * @return int
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
     }
 }
