@@ -22,16 +22,17 @@ class FinanceClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return Balance
+     * @throws ForbiddenException
+     * @throws PartnerRequestException
+     * @throws UnauthorizedException
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getBalance($campaignId, array $params = [])
+    public function getBalance($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/balance.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -48,16 +49,17 @@ class FinanceClient extends Client
      *
      * @param int $campaignId
      * @param $amount
+     * @param null $dbgKey
      * @return GetInfoForInvoiceResponse
      * @throws ForbiddenException
-     * @throws GuzzleException
      * @throws PartnerRequestException
      * @throws UnauthorizedException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getInfoForInvoice($campaignId, $amount)
+    public function getInfoForInvoice($campaignId, $amount, $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/invoice/paypreview.json?amount=' . $amount;
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest('POST', $this->getServiceUrl($resource));
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
@@ -71,15 +73,17 @@ class FinanceClient extends Client
      *
      * @param array $params
      *
+     * @param null $dbgKey
      * @return InvoiceResponse
-     * @throws GuzzleException
      * @throws ForbiddenException
-     * @throws UnauthorizedException
      * @throws PartnerRequestException
+     * @throws UnauthorizedException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function putInvoice(array $params = [])
+    public function putInvoice(array $params = [], $dbgKey = null)
     {
         $resource = '/invoice.json';
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -98,16 +102,17 @@ class FinanceClient extends Client
      * @param $campaignId
      * @param $invoiceId
      * @param array $params
+     * @param null $dbgKey
      * @return string|PostResponse
      * @throws ForbiddenException
-     * @throws GuzzleException
      * @throws PartnerRequestException
      * @throws UnauthorizedException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getReceipt($campaignId, $invoiceId, array $params = [])
+    public function getReceipt($campaignId, $invoiceId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/invoices/' . $invoiceId;
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
         $header = $response->getHeader("Content-Type");

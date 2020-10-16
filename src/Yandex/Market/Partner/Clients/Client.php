@@ -99,14 +99,16 @@ class Client extends AbstractServiceClient
      * but transform key=>value where key == value to "?key" param.
      *
      * @param array|object $queryData
-     * @param string       $prefix
-     * @param string       $argSeparator
-     * @param int          $encType
+     * @param null $dbgKey
+     * @param string $prefix
+     * @param string $argSeparator
+     * @param int $encType
      *
      * @return string $queryString
      */
     protected function buildQueryString(
         array $queryData,
+        $dbgKey = null,
         $prefix = '',
         $argSeparator = '&',
         $encType = PHP_QUERY_RFC3986
@@ -123,6 +125,9 @@ class Client extends AbstractServiceClient
             if ($key === $value) {
                 $queryString = str_replace("{$key}={$value}", $value, $queryString);
             }
+        }
+        if ($dbgKey) {
+            $queryString ? $queryString .= '&dbg=' . $dbgKey : $queryString .= 'dbg=' . $dbgKey;
         }
 
         return $queryString;
@@ -175,5 +180,13 @@ class Client extends AbstractServiceClient
         }
 
         return $response;
+    }
+
+    protected function addDebugKey($resource, $dbgKey)
+    {
+        if($dbgKey) {
+            return $resource . '?dbg=' . $dbgKey;
+        }
+        return $resource;
     }
 }
