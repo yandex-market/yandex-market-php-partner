@@ -19,16 +19,19 @@ class OutletClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-outlets-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetOutletsResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getOutletsInfo($campaignId, array $params = [])
+    public function getOutletsInfo($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -42,16 +45,20 @@ class OutletClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-outlets-id-docpage/
      *
+     * @param $campaignId
+     * @param $outletId
+     * @param array $params
+     * @param null $dbgKey
      * @return Outlet
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getOutletInfo($campaignId, $outletId, array $params = [])
+    public function getOutletInfo($campaignId, $outletId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/' . $outletId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -67,16 +74,19 @@ class OutletClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-outlets-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function createOutlet($campaignId, array $params = [])
+    public function createOutlet($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -95,16 +105,20 @@ class OutletClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/put-campaigns-id-outlets-id-docpage/
      *
+     * @param $campaignId
+     * @param $outletId
+     * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function updateOutlet($campaignId, $outletId, array $params = [])
+    public function updateOutlet($campaignId, $outletId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/' . $outletId . '.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'PUT',
             $this->getServiceUrl($resource),
@@ -123,16 +137,20 @@ class OutletClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/delete-campaigns-id-outlets-id-docpage/
      *
+     * @param $campaignId
+     * @param $outletId
+     * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteOutlet($campaignId, $outletId, array $params = [])
+    public function deleteOutlet($campaignId, $outletId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/' . $outletId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('DELETE', $this->getServiceUrl($resource));
 
@@ -146,16 +164,17 @@ class OutletClient extends Client
      *
      * @param $campaignId
      * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function createOutletsLicenses($campaignId,  array $params = [])
+    public function createOutletsLicenses($campaignId,  array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/licenses.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -171,16 +190,17 @@ class OutletClient extends Client
      *
      * @param $campaignId
      * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function deleteOutletsLicenses($campaignId,  array $params = [])
+    public function deleteOutletsLicenses($campaignId,  array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/licenses.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('DELETE', $this->getServiceUrl($resource));
 
@@ -196,16 +216,17 @@ class OutletClient extends Client
      *
      * @param $campaignId
      * @param array $params
+     * @param null $dbgKey
      * @return GetOutletsLicensesResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getOutletsLicenses($campaignId,  array $params = [])
+    public function getOutletsLicenses($campaignId,  array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/outlets/licenses.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
@@ -217,15 +238,17 @@ class OutletClient extends Client
      *
      * @see https://yandex.ru/dev/market/partner/doc/dg/reference/get-delivery-services-docpage/
      *
+     * @param null $dbgKey
      * @return DeliveryServices
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getDeliveryServices()
+    public function getDeliveryServices($dbgKey = null)
     {
         $resource = 'delivery/services.json';
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());

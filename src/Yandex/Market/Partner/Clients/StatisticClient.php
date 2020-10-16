@@ -21,32 +21,32 @@ class StatisticClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return Stats
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getMain($campaignId, array $params = [])
+    public function getMain($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/stats/main.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         return $this->getStatsResponse($resource);
     }
 
     /**
-     * @param int $campaignId
      * @param string $resource
-     * @param array $params
-     *
+     * @param null $dbgKey
      * @return Stats
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    private function getStatsResponse($resource)
+    private function getStatsResponse($resource, $dbgKey = null)
     {
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
@@ -63,16 +63,17 @@ class StatisticClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return Stats
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getDaily($campaignId, array $params = [])
+    public function getDaily($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/stats/main-daily.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         return $this->getStatsResponse($resource);
     }
 
@@ -84,16 +85,17 @@ class StatisticClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return Stats
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getWeekly($campaignId, array $params = [])
+    public function getWeekly($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/stats/main-weekly.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         return $this->getStatsResponse($resource);
     }
 
@@ -105,16 +107,17 @@ class StatisticClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return Stats
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getMonthly($campaignId, array $params = [])
+    public function getMonthly($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/stats/main-monthly.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         return $this->getStatsResponse($resource);
     }
 
@@ -126,16 +129,17 @@ class StatisticClient extends Client
      * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return GetOffersStatsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getOffersStats($campaignId, array $params = [])
+    public function getOffersStats($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/stats/offers.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());

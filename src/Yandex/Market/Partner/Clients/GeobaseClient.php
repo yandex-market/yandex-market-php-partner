@@ -14,16 +14,18 @@ class GeobaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-regions-docpage/
      *
+     * @param array $params
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Regions
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRegionsMatch(array $params = [])
+    public function getRegionsMatch(array $params = [], $dbgKey = null)
     {
         $resource = 'regions.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -38,16 +40,19 @@ class GeobaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-regions-id-docpage/
      *
+     * @param $regionId
+     * @param array $params
+     * @param null $dbgKey
      * @return Regions
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRegion($regionId, array $params = [])
+    public function getRegion($regionId, array $params = [], $dbgKey = null)
     {
         $resource = 'regions/' . $regionId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -62,16 +67,19 @@ class GeobaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-regions-id-docpage/
      *
+     * @param $regionId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetRegionsResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getRegionChilds($regionId, array $params = [])
+    public function getRegionChilds($regionId, array $params = [], $dbgKey = null)
     {
         $resource = 'regions/' . $regionId . '/children.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 

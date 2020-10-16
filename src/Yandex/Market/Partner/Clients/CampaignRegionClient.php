@@ -15,19 +15,20 @@ class CampaignRegionClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-region-docpage/
      *
-     * @param string $login
-     * @param array  $params
+     * @param $campaignId
+     * @param array $params
      *
+     * @param null $dbgKey
      * @return Region
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getRegion($campaignId, $params = [])
+    public function getRegion($campaignId, $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/region.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 

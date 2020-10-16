@@ -13,16 +13,19 @@ class PriceClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-offer-prices-updates-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function updatePrices($campaignId, array $params = [])
+    public function updatePrices($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/offer-prices/updates.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -39,16 +42,18 @@ class PriceClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-offer-prices-removals-docpage/
      *
+     * @param $campaignId
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deletePrices($campaignId)
+    public function deletePrices($campaignId, $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/offer-prices/removals.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -69,16 +74,19 @@ class PriceClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-offer-prices-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetOfferPricesResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getOfferPrices($campaignId, array $params = [])
+    public function getOfferPrices($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/offer-prices.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
