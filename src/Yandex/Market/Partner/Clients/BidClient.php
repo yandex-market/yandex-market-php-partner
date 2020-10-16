@@ -24,10 +24,11 @@ class BidClient extends Client
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getBids($campaignId, array $params = [])
+    public function getBids($campaignId, array $params = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/auction/bids.json';
+            $resource = $this->addDebugKey($resource, $dbgKey);
             $response = $this->sendRequest(
                 'POST',
                 $this->getServiceUrl($resource),
@@ -52,17 +53,15 @@ class BidClient extends Client
      * @param $campaignId
      * @param array $params
      * @param array $getParams
+     * @param null $dbgKey
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getRecommendedBids($campaignId, array $params = [], array $getParams = [])
+    public function getRecommendedBids($campaignId, array $params = [], array $getParams = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
-            $resource .= '?' . $this->buildQueryString($getParams);
+            $resource .= '?' . $this->buildQueryString($getParams, $dbgKey);
             $response = $this->sendRequest(
                 'POST',
                 $this->getServiceUrl($resource),
@@ -84,16 +83,15 @@ class BidClient extends Client
      *
      * @param $campaignId
      * @param array $params
+     * @param null $dbgKey
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getPopularRecommendedBidsMarketSearch($campaignId, array $params = [])
+    public function getPopularRecommendedBidsMarketSearch($campaignId, array $params = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/bids/recommended/top/market-search.json';
+            $resource = $this->addDebugKey($resource, $dbgKey);
             $response = $this->sendRequest(
                 'POST',
                 $this->getServiceUrl($resource),
@@ -117,16 +115,15 @@ class BidClient extends Client
      *
      * @param $campaignId
      * @param array $params
+     * @param null $dbgKey
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function setBids($campaignId, array $params = [])
+    public function setBids($campaignId, array $params = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/auction/bids.json';
+            $resource = $this->addDebugKey($resource, $dbgKey);
             $response = $this->sendRequest(
                 'PUT',
                 $this->getServiceUrl($resource),
@@ -148,16 +145,16 @@ class BidClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-bids-settings-docpage/
      *
+     * @param $campaignId
+     * @param null $dbgKey
      * @return string
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getBidsSettings($campaignId)
+    public function getBidsSettings($campaignId, $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/bids/settings.json';
+            $resource = $this->addDebugKey($resource, $dbgKey);
             $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
             $decodedResponseBody = $this->getDecodedBody($response->getBody());
             $getBidsSettingsResponse = new BidsSettingsResponse($decodedResponseBody);
@@ -177,17 +174,15 @@ class BidClient extends Client
      * @param $campaignId
      * @param array $params
      * @param array $getParams
+     * @param null $dbgKey
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Yandex\Common\Exception\ForbiddenException
-     * @throws \Yandex\Common\Exception\UnauthorizedException
-     * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getRecommendationsBidsForYandexSearch($campaignId, array $params = [], array $getParams = [])
+    public function getRecommendationsBidsForYandexSearch($campaignId, array $params = [], array $getParams = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
-            $resource .= '?' . $this->buildQueryString($getParams);
+            $resource .= '?' . $this->buildQueryString($getParams, $dbgKey);
             $response = $this->sendRequest(
                 'POST',
                 $this->getServiceUrl($resource),
@@ -210,14 +205,15 @@ class BidClient extends Client
      * @param $campaignId
      * @param array $params
      * @param array $getParams
+     * @param null $dbgKey
      * @return string|SetBidsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function setRecommendationsBids($campaignId, array $params = [], array $getParams = [])
+    public function setRecommendationsBids($campaignId, array $params = [], array $getParams = [], $dbgKey = null)
     {
         try {
             $resource = 'campaigns/' . $campaignId . '/auction/recommendations/bids.json';
-            $resource .= '?' . $this->buildQueryString($getParams);
+            $resource .= '?' . $this->buildQueryString($getParams, $dbgKey);
             $response = $this->sendRequest(
                 'PUT',
                 $this->getServiceUrl($resource),

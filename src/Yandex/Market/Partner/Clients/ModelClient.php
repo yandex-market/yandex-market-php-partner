@@ -15,16 +15,19 @@ class ModelClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-models-id-docpage/
      *
+     * @param $modelId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetModelInfoResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelInfo($modelId, array $params = [])
+    public function getModelInfo($modelId, array $params = [], $dbgKey = null)
     {
         $resource = 'models/' . $modelId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -38,16 +41,18 @@ class ModelClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-models-docpage/
      *
+     * @param array $params
+     * @param null $dbgKey
      * @return GetModelInfoResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelMatch(array $params = [])
+    public function getModelMatch(array $params = [], $dbgKey = null)
     {
         $resource = 'models.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -62,16 +67,19 @@ class ModelClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-models-id-offers-docpage/
      *
+     * @param $modelId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetModelOffersResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelOffers($modelId, array $params = [])
+    public function getModelOffers($modelId, array $params = [], $dbgKey = null)
     {
         $resource = 'models/' . $modelId . '/offers.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -87,16 +95,19 @@ class ModelClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-models-docpage/
      *
+     * @param array $params
+     * @param array $getParams
+     * @param null $dbgKey
      * @return GetModelInfoResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getModelsInfo(array $params = [], array $getParams = [])
+    public function getModelsInfo(array $params = [], array $getParams = [], $dbgKey = null)
     {
         $resource = 'models.json';
-        $resource .= '?' . $this->buildQueryString($getParams);
+        $resource .= '?' . $this->buildQueryString($getParams, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -115,16 +126,17 @@ class ModelClient extends Client
      * @param $regionId
      * @param array $params
      * @param array $queryParams
+     * @param null $dbgKey
      * @return GetModelOffersResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getModelsOffers($regionId, array $params = [], array $queryParams = [])
+    public function getModelsOffers($regionId, array $params = [], array $queryParams = [], $dbgKey = null)
     {
         $resource = 'models/offers.json?regionId=' . $regionId;
-        $resource .= '&' . $this->buildQueryString($queryParams);
+        $resource .= '&' . $this->buildQueryString($queryParams, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),

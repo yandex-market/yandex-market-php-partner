@@ -21,16 +21,18 @@ class BaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-docpage/
      *
+     * @param array $params
+     * @param null $dbgKey
      * @return GetCampaignsResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getCampaigns(array $params = [])
+    public function getCampaigns(array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -46,16 +48,19 @@ class BaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return Campaign
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getCampaign($campaignId, array $params = [])
+    public function getCampaign($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -72,19 +77,20 @@ class BaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-logins-docpage/
      *
-     * @param int   $campaignId
+     * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return string[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getCampaignLogins($campaignId, array $params = [])
+    public function getCampaignLogins($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/logins.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -101,18 +107,19 @@ class BaseClient extends Client
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-settings-docpage/
      *
      * @param string $login
-     * @param array  $params
+     * @param array $params
      *
+     * @param null $dbgKey
      * @return Campaigns
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getCampaignsByLogin($login, array $params = [])
+    public function getCampaignsByLogin($login, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/by_login/' . $login . '/.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -127,19 +134,20 @@ class BaseClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-settings-docpage/
      *
-     * @param int   $campaignId
+     * @param int $campaignId
      * @param array $params
      *
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Settings
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      */
-    public function getCampaignSettings($campaignId, array $params = [])
+    public function getCampaignSettings($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/settings.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 

@@ -25,16 +25,19 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-offers-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetOffersResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getOffers($campaignId, array $params = [])
+    public function getOffers($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/offers.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -48,17 +51,19 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-offers-all-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Offers
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getAllOffers($campaignId, array $params = [])
+    public function getAllOffers($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/offers/all.json';
-        $resource .= '?' . $this->buildQueryString($params);
-
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
@@ -79,10 +84,10 @@ class AssortmentClient extends Client
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getFeeds($campaignId, array $params = [])
+    public function getFeeds($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -98,16 +103,20 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-feeds-id-docpage/
      *
+     * @param $campaignId
+     * @param $feedId
+     * @param array $params
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Feed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getFeed($campaignId, $feedId, array $params = [])
+    public function getFeed($campaignId, $feedId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -123,18 +132,21 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-feeds-id-categories-docpage/
      *
+     * @param $campaignId
+     * @param $feedId
+     * @param array $params
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Categories
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
      * @deprecated
      */
-    public function getFeedCategories($campaignId, $feedId, array $params = [])
+    public function getFeedCategories($campaignId, $feedId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/categories.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -150,16 +162,19 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-feeds-categories-docpage/
      *
+     * @param $campaignId
+     * @param array $params
+     * @param null $dbgKey
      * @return \Yandex\Market\Partner\Models\Response\GetCampaignCategoriesResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getCampaignCategories($campaignId, array $params = [])
+    public function getCampaignCategories($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/categories.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -173,16 +188,20 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-feeds-id-index-logs-docpage/
      *
+     * @param $campaignId
+     * @param $feedId
+     * @param array $params
+     * @param null $dbgKey
      * @return GetIndexLogsResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getIndexLogs($campaignId, $feedId, array $params = [])
+    public function getIndexLogs($campaignId, $feedId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/index-logs.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
@@ -198,16 +217,20 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-feeds-id-params-docpage/
      *
+     * @param $campaignId
+     * @param $feedId
+     * @param array $params
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function setFeedParams($campaignId, $feedId, array $params = [])
+    public function setFeedParams($campaignId, $feedId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/params.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest(
             'POST',
             $this->getServiceUrl($resource),
@@ -225,16 +248,19 @@ class AssortmentClient extends Client
      *
      * @see https://tech.yandex.ru/market/partner/doc/dg/reference/post-campaigns-id-feeds-id-params-docpage/
      *
+     * @param $campaignId
+     * @param $feedId
+     * @param null $dbgKey
      * @return PostResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Yandex\Common\Exception\ForbiddenException
      * @throws \Yandex\Common\Exception\UnauthorizedException
      * @throws \Yandex\Market\Partner\Exception\PartnerRequestException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function refreshFeed($campaignId, $feedId)
+    public function refreshFeed($campaignId, $feedId, $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/refresh.json';
-
+        $resource = $this->addDebugKey($resource, $dbgKey);
         $response = $this->sendRequest('POST', $this->getServiceUrl($resource));
 
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
@@ -242,10 +268,10 @@ class AssortmentClient extends Client
         return new PostResponse($decodedResponseBody);
     }
 
-    public function getFeedCategoriesPaged($campaignId, $feedId, array $params = [])
+    public function getFeedCategoriesPaged($campaignId, $feedId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/feeds/' . $feedId . '/categories.json';
-        $resource .= '?' . $this->buildQueryString($params);
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
 
         $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
 
