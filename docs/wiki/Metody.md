@@ -1002,6 +1002,7 @@ $createOutletResponse = $outletClient->createOutlet(10001, [
                 'endTime' => '16:00',
             ],            
         ],
+    ],
     // Информация об условиях доставки в точку продаж.
     // Обязательный параметр, если 'type' == 'DEPOT' или 'type' == 'MIXED'    
     'deliveryRules' => [
@@ -1014,7 +1015,7 @@ $createOutletResponse = $outletClient->createOutlet(10001, [
             'maxDeliveryDays' => 2,
             // Стоимость самовывоза из точки продаж.  
             // Обязательный параметр, если 'type' == 'DEPOT' или 'type' == 'MIXED' 
-            'cost' = 285.0,
+            'cost' => 285.0,
         ]
     ],        
 ]);
