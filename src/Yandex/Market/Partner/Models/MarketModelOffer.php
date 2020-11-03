@@ -7,12 +7,15 @@ use Yandex\Common\Model;
 class MarketModelOffer extends Model
 {
     protected $id;
+    protected $name;
+    protected $prices;
     protected $offers;
     protected $offlineOffers;
     protected $onlineOffers;
 
     protected $mappingClasses = [
         'offers' => Offers::class,
+        'prices' => ModelPrices::class,
     ];
 
     /**
