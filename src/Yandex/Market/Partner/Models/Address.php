@@ -6,15 +6,25 @@ use Yandex\Common\Model;
 
 class Address extends Model
 {
+    protected $postcode;
+    protected $country;
+    protected $city;
+    protected $subway;
     protected $regionId;
     protected $street;
+    protected $house;
+    protected $block;
+    protected $entrance;
+    protected $entryphone;
+    protected $floor;
+    protected $apartment;
+    protected $phone;
     protected $number;
     protected $building;
     protected $estate;
-    protected $block;
     protected $additional;
     protected $km;
-    protected $city;
+    protected $recipient;
 
     /**
      * @return int
@@ -82,10 +92,89 @@ class Address extends Model
 
     /**
      * @return string
-     * @deprecated
      */
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubway()
+    {
+        return $this->subway;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHouse()
+    {
+        return $this->house;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntrance()
+    {
+        return $this->entrance;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntryphone()
+    {
+        return $this->entryphone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApartment()
+    {
+        return $this->apartment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipient()
+    {
+        return $this->recipient;
     }
 }
