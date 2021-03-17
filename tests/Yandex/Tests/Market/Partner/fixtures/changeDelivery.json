@@ -1,0 +1,142 @@
+{
+  "order":
+  {
+    "creationDate": "01-07-2017 00:42:42",
+    "currency": "RUR",
+    "fake": false,
+    "id": 12345,
+    "itemsTotal": 3700,
+    "paymentType": "PREPAID",
+    "paymentMethod": "YANDEX",
+    "status": "PROCESSING",
+    "taxSystem": "OSN",
+    "total": 4050,
+    "buyer":
+    {
+      "id": "LEgMQuuxR8",
+      "lastName": "Иванов",
+      "firstName": "Иван",
+      "middleName": "Иванович",
+      "email": "ivanov.ivan@yandex.ru",
+      "phone": "+71234567890"
+    },
+    "delivery":
+    {
+      "deliveryPartnerType": "YANDEX_MARKET",
+      "price": 350,
+      "serviceName": "СПСР",
+      "type": "DELIVERY",
+      "vat": "VAT_10",
+      "address":
+      {
+        "postcode": "119313",
+        "country": "Россия",
+        "city": "Москва",
+        "subway": "Проспект Вернадского",
+        "street": "Ленинский проспект",
+        "house": "90",
+        "entrance": "10",
+        "entryphone": "289",
+        "floor": "6",
+        "apartment": "289",
+        "phone": "+71234567890",
+        "recipient": "Иванов Иван"
+      },
+      "dates":
+      {
+        "fromDate": "03-07-2017"
+      },
+      "region":
+      {
+        "id": 213,
+        "name": "Москва",
+        "type": "CITY",
+        "parent":
+        {
+          "id": 1,
+          "name": "Москва и Московская область",
+          "type": "REPUBLIC",
+          "parent":
+          {
+            "id": 3,
+            "name": "Центральный федеральный округ",
+            "type": "AREA",
+            "parent":
+            {
+              "id": 225,
+              "name": "Россия",
+              "type": "COUNTRY"
+            }
+          }
+        }
+      },
+      "shipments":
+      [
+        {
+          "depth": 22,
+          "height": 22,
+          "id": 67891011,
+          "status": "CREATED",
+          "weight": 2000,
+          "width": 22,
+          "documents":
+          [
+            {
+              "type": "LABEL",
+              "url": "/campaigns/10003/orders/12345/labels/196"
+            }
+          ],
+          "items":
+          [
+            {
+              "count": 3,
+              "id": 6789
+            },
+            {
+              "count": 1,
+              "id": 1011
+            }
+          ],
+          "tracks":
+          [
+            {
+              "deliveryServiceId": 12345,
+              "trackCode": "AB012345678RU"
+            }
+          ]
+        }
+      ]
+    },
+    "items":
+    [
+      {
+        "count": 3,
+        "feedCategoryId": "35",
+        "feedId": 12345,
+        "id": 6789,
+        "offerId": "4609283881",
+        "offerName": "Чайник электрический 100 W",
+        "price": 1200,
+        "vat": "VAT_20",
+        "promos":
+        [
+          {
+            "marketPromoId": "abc",
+            "subsidy": 300,
+            "type": "MARKET_DEAL"
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "feedCategoryId": "41",
+        "feedId": 12345,
+        "id": 1011,
+        "offerId": "4607632101",
+        "offerName": "Тостер",
+        "price": 2200,
+        "vat": "VAT_20"
+      }
+    ]
+  }
+}
