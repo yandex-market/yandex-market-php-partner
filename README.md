@@ -82,4 +82,6 @@ do {
 } while ($pageNumber != $campaignsTotalPages);    
 ```
 
-Подробнее см. [Wiki](https://github.com/yandex-market/yandex-market-php-partner/wiki) и [документацию партнерского API](https://tech.yandex.ru/market/partner/doc/dg/concepts/about-docpage/).   
+Подробнее см. [Wiki](https://github.com/yandex-market/yandex-market-php-partner/wiki) и документацию партнерского API Маркета для моделей:
+- [DBS](https://yandex.ru/dev/market/partner-dsbs/doc/dg/concepts/about.html);
+- [ADV](https://yandex.ru/dev/market/partner/doc/dg/concepts/about.html).   
