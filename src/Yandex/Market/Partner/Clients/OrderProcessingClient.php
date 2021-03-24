@@ -6,7 +6,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use Yandex\Common\Exception\ForbiddenException;
 use Yandex\Common\Exception\UnauthorizedException;
 use Yandex\Market\Partner\Exception\PartnerRequestException;
-use Yandex\Market\Partner\Models\Response\ChangeDeliveryResponse;
 use Yandex\Market\Partner\Models\Response\GetBuyerResponse;
 use Yandex\Market\Partner\Models\Response\GetDeliveryServiceResponse;
 use Yandex\Market\Partner\Models\Response\GetOrderResponse;
@@ -105,16 +104,15 @@ class OrderProcessingClient extends Client
      * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/get-campaigns-id-orders.html
      *
      * @param $campaignId
-     * @param $orderId
      * @param array $params
      * @param null $dbgKey
      * @return GetOrdersResponse
-     * @throws GuzzleException
      * @throws ForbiddenException
-     * @throws UnauthorizedException
+     * @throws GuzzleException
      * @throws PartnerRequestException
+     * @throws UnauthorizedException
      */
-    public function getOrders($campaignId, $orderId, array $params = [], $dbgKey = null)
+    public function getOrders($campaignId, array $params = [], $dbgKey = null)
     {
         $resource = 'campaigns/' . $campaignId . '/orders.json';
         $resource .= '?' . $this->buildQueryString($params, $dbgKey);
@@ -149,14 +147,17 @@ class OrderProcessingClient extends Client
     /**
      * Return buyer info
      *
-     * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/get-delivery-services.html
+     * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/get-campaigns-id-order-id-buyer.html
      *
+     * @param $campaignId
+     * @param $orderId
+     * @param array $params
      * @param null $dbgKey
      * @return GetBuyerResponse
-     * @throws GuzzleException
      * @throws ForbiddenException
-     * @throws UnauthorizedException
+     * @throws GuzzleException
      * @throws PartnerRequestException
+     * @throws UnauthorizedException
      */
     public function getBuyer($campaignId, $orderId, array $params = [], $dbgKey = null)
     {

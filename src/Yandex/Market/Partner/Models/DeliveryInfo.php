@@ -30,7 +30,6 @@ class DeliveryInfo extends Model
     protected $address;
     protected $dates;
     protected $region;
-    protected $shipments;
     protected $outlet;
 
     protected $mappingClasses = [
@@ -38,7 +37,6 @@ class DeliveryInfo extends Model
         'dates' => Dates::class,
         'region' => Region::class,
         'outlet' => DeliveryOutlet::class
-//        'shipments' => Shipments::class,
     ];
 
     /**
@@ -80,14 +78,6 @@ class DeliveryInfo extends Model
     {
         return $this->region;
     }
-
-//    /**
-//     * @return Shipments|null
-//     */
-//    public function getShipments()
-//    {
-//        return $this->shipments;
-//    }
 
     /**
      * @return string
