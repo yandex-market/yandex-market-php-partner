@@ -4,8 +4,10 @@ namespace Yandex\Tests\Market\Partner;
 
 use GuzzleHttp\Psr7\Response;
 use Yandex\Market\Partner\Clients\OrderProcessingClient;
+use Yandex\Market\Partner\Models\Buyer;
 use Yandex\Market\Partner\Models\Item;
 use Yandex\Market\Partner\Models\OrderInfo;
+use Yandex\Market\Partner\Models\Response\GetBuyerResponse;
 use Yandex\Market\Partner\Models\Response\GetDeliveryServiceResponse;
 use Yandex\Market\Partner\Models\Response\GetOrderResponse;
 use Yandex\Market\Partner\Models\Response\GetOrdersResponse;
@@ -140,6 +142,26 @@ class OrderProcessingClientTest extends TestCase
 
     }
 
+    public function testGetBuyer()
+    {
+        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/getBuyer.json');
+        $jsonObj = json_decode($json);
+        $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
+
+        $mock = $this->getMockBuilder(OrderProcessingClient::class)
+            ->setMethods(['sendRequest'])
+            ->getMock();
+
+        $mock->expects($this->any())
+            ->method('sendRequest')
+            ->will($this->returnValue($response));
+
+        /** @var GetBuyerResponse $buyerRes */
+        $buyerRes = $mock->getBuyer(self::CAMPAIGN_ID, self::ORDER_ID);
+        $buyer = $buyerRes->getResult();
+        $this->getBuyer($jsonObj, $buyer);
+    }
+
     /**
      * @param $jsonObj
      * @param OrderInfo $order
@@ -160,15 +182,15 @@ class OrderProcessingClientTest extends TestCase
 
     /**
      * @param $jsonObj
-     * @param OrderInfo $order
+     * @param Buyer $buyer
      */
-    private function getOrderBuyer($jsonObj, $order)
+    private function getBuyer($jsonObj, $buyer)
     {
-        $this->assertEquals($jsonObj->order->buyer->id, $order->getBuyer()->getId());
-        $this->assertEquals($jsonObj->order->buyer->lastName, $order->getBuyer()->getLastName());
-        $this->assertEquals($jsonObj->order->buyer->firstName, $order->getBuyer()->getFirstName());
-        $this->assertEquals($jsonObj->order->buyer->middleName, $order->getBuyer()->getMiddleName());
-        $this->assertEquals($jsonObj->order->buyer->phone, $order->getBuyer()->getPhone());
+        $this->assertEquals($jsonObj->result->id, $buyer->getId());
+        $this->assertEquals($jsonObj->result->lastName, $buyer->getLastName());
+        $this->assertEquals($jsonObj->result->firstName, $buyer->getFirstName());
+        $this->assertEquals($jsonObj->result->middleName, $buyer->getMiddleName());
+        $this->assertEquals($jsonObj->result->phone, $buyer->getPhone());
     }
 
     /**

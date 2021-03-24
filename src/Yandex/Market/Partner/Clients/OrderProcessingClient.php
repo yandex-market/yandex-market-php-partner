@@ -7,6 +7,7 @@ use Yandex\Common\Exception\ForbiddenException;
 use Yandex\Common\Exception\UnauthorizedException;
 use Yandex\Market\Partner\Exception\PartnerRequestException;
 use Yandex\Market\Partner\Models\Response\ChangeDeliveryResponse;
+use Yandex\Market\Partner\Models\Response\GetBuyerResponse;
 use Yandex\Market\Partner\Models\Response\GetDeliveryServiceResponse;
 use Yandex\Market\Partner\Models\Response\GetOrderResponse;
 use Yandex\Market\Partner\Models\Response\GetOrdersResponse;
@@ -143,5 +144,27 @@ class OrderProcessingClient extends Client
         $decodedResponseBody = $this->getDecodedBody($response->getBody());
 
         return new GetDeliveryServiceResponse($decodedResponseBody['result']);
+    }
+
+    /**
+     * Return buyer info
+     *
+     * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/get-delivery-services.html
+     *
+     * @param null $dbgKey
+     * @return GetBuyerResponse
+     * @throws GuzzleException
+     * @throws ForbiddenException
+     * @throws UnauthorizedException
+     * @throws PartnerRequestException
+     */
+    public function getBuyer($campaignId, $orderId, array $params = [], $dbgKey = null)
+    {
+        $resource = 'campaigns/' . $campaignId . '/orders/' . $orderId . '/buyer.json';
+        $resource .= '?' . $this->buildQueryString($params, $dbgKey);
+        $response = $this->sendRequest('GET', $this->getServiceUrl($resource));
+        $decodedResponseBody = $this->getDecodedBody($response->getBody());
+
+        return new GetBuyerResponse($decodedResponseBody);
     }
 }
