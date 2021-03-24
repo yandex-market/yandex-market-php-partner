@@ -6,7 +6,6 @@ use GuzzleHttp\Psr7\Response;
 use Yandex\Market\Partner\Clients\OrderProcessingClient;
 use Yandex\Market\Partner\Models\Item;
 use Yandex\Market\Partner\Models\OrderInfo;
-use Yandex\Market\Partner\Models\Response\ChangeDeliveryResponse;
 use Yandex\Market\Partner\Models\Response\GetDeliveryServiceResponse;
 use Yandex\Market\Partner\Models\Response\GetOrderResponse;
 use Yandex\Market\Partner\Models\Response\GetOrdersResponse;
@@ -61,33 +60,6 @@ class OrderProcessingClientTest extends TestCase
         $response = $mock->transferCis(self::CAMPAIGN_ID, self::ORDER_ID);
         $item = $response->getItems()->current();
         $this->getItems($jsonObj, $item);
-    }
-
-    public function testChangeDelivery()
-    {
-        $json = file_get_contents(__DIR__ . '/' . $this->fixturesFolder . '/changeDelivery.json');
-        $jsonObj = json_decode($json);
-        $response = new Response(200, [], \GuzzleHttp\Psr7\stream_for($json));
-
-        $mock = $this->getMockBuilder(OrderProcessingClient::class)
-            ->setMethods(['sendRequest'])
-            ->getMock();
-
-        $mock->expects($this->any())
-            ->method('sendRequest')
-            ->will($this->returnValue($response));
-
-        /** @var ChangeDeliveryResponse $orderResponse */
-        $orderResponse = $mock->changeDelivery(self::CAMPAIGN_ID, self::ORDER_ID);
-        $order = $orderResponse->getOrder();
-        $this->getGeneralOrderInfo($jsonObj, $order);
-        $this->getOrderDelivery($jsonObj, $order);
-        $this->getOrderBuyer($jsonObj, $order);
-
-        $this->assertEquals($jsonObj->order->items[0]->count, $order->getItems()->current()->getCount());
-        $this->assertEquals($jsonObj->order->items[0]->feedCategoryId, $order->getItems()->current()->getFeedCategoryId());
-        $this->assertEquals($jsonObj->order->items[0]->feedId, $order->getItems()->current()->getFeedId());
-        $this->assertEquals($jsonObj->order->items[0]->id, $order->getItems()->current()->getId());
     }
 
     public function testGetOrder()

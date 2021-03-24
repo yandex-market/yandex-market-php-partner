@@ -74,35 +74,6 @@ class OrderProcessingClient extends Client
     }
 
     /**
-     * Changes to order delivery terms
-     *
-     * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/put-campaigns-id-orders-id-delivery.html
-     *
-     * @param $campaignId
-     * @param $orderId
-     * @param array $params
-     * @param null $dbgKey
-     * @return ChangeDeliveryResponse
-     * @throws GuzzleException
-     * @throws ForbiddenException
-     * @throws UnauthorizedException
-     * @throws PartnerRequestException
-     */
-    public function changeDelivery($campaignId, $orderId, array $params = [], $dbgKey = null)
-    {
-        $resource = 'campaigns/' . $campaignId . '/orders/' . $orderId . '/delivery.json';
-        $resource = $this->addDebugKey($resource, $dbgKey);
-        $response = $this->sendRequest(
-            'PUT',
-            $this->getServiceUrl($resource),
-            ['json' => $params]
-        );
-        $decodedResponseBody = $this->getDecodedBody($response->getBody());
-
-        return new ChangeDeliveryResponse($decodedResponseBody);
-    }
-
-    /**
      * Get order info
      *
      * @https://yandex.ru/dev/market/partner-dsbs/doc/dg/reference/get-campaigns-id-orders-id.html
