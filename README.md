@@ -1,6 +1,6 @@
-# PHP-библиотека партнерского API Яндекс.Маркета для модели ADV
+# PHP-библиотека партнерского API Яндекс.Маркета для моделей ADV и DBS
 
-С помощью [партнерского API Яндекс.Маркета для модели ADV](https://tech.yandex.ru/market/partner/doc/dg/concepts/about-docpage/) (*Advertising*, рекламная модель) внешние приложения могут получать сведения о своих магазинах и предложениях и управлять ими. Библиотека написана на языке PHP и содержит методы для работы с партнерским API. 
+С помощью партнерского API Яндекс.Маркета для моделей DBS (*Delivery by Seller*, продажи с доставкой продавца) и ADV (*Advertising*, рекламная модель) внешние приложения могут получать сведения о своих магазинах и предложениях и управлять ими. Библиотека написана на языке PHP и содержит методы для работы с партнерским API. 
 
 * [Требования](#Требования)
 * [Лицензия и условия использования](#Лицензия-и-условия-использования)
@@ -82,4 +82,6 @@ do {
 } while ($pageNumber != $campaignsTotalPages);    
 ```
 
-Подробнее см. [Wiki](https://github.com/yandex-market/yandex-market-php-partner/wiki) и [документацию партнерского API](https://tech.yandex.ru/market/partner/doc/dg/concepts/about-docpage/).   
+Подробнее см. [Wiki](https://github.com/yandex-market/yandex-market-php-partner/wiki) и документацию партнерского API Маркета для моделей:
+- [DBS](https://yandex.ru/dev/market/partner-dsbs/doc/dg/concepts/about.html);
+- [ADV](https://yandex.ru/dev/market/partner/doc/dg/concepts/about.html).   
