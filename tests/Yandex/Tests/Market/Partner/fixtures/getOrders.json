@@ -1,0 +1,181 @@
+{
+  "orders":
+  [
+    {
+      "creationDate": "10-12-2019 11:42:14",
+      "currency": "RUR",
+      "fake": false,
+      "id": 12345,
+      "itemsTotal": 3700,
+      "paymentType": "PREPAID",
+      "paymentMethod": "YANDEX",
+      "status": "PROCESSING",
+      "substatus": "READY_TO_SHIP",
+      "taxSystem": "OSN",
+      "total": 4050,
+      "subsidyTotal": 300,
+      "delivery":
+      {
+        "deliveryPartnerType": "YANDEX_MARKET",
+        "serviceName": "СПСР",
+        "type": "DELIVERY",
+        "region":
+        {
+          "id": 213,
+          "name": "Москва",
+          "type": "CITY",
+          "parent":
+          {
+            "id": 1,
+            "name": "Москва и Московская область",
+            "type": "REPUBLIC",
+            "parent":
+            {
+              "id": 3,
+              "name": "Центральный федеральный округ",
+              "type": "AREA",
+              "parent":
+              {
+                "id": 225,
+                "name": "Россия",
+                "type": "COUNTRY"
+              }
+            }
+          }
+        },
+        "shipments":
+        [
+          {
+            "id": 90141,
+            "shipmentDate": "11-12-2019",
+            "boxes":
+            [
+              {
+                "id": 67891011,
+                "depth": 22,
+                "height": 22,
+                "weight": 2000,
+                "width": 22,
+                "items":
+                [
+                  {
+                    "count": 3,
+                    "id": 6789
+                  },
+                  {
+                    "count": 1,
+                    "id": 1011
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "items":
+      [
+        {
+          "id": 6789,
+          "offerId": "100423035876",
+          "count": 1,
+          "price": 1200,
+          "subsidy": 300,
+          "vat": "VAT_20",
+          "instances":
+          [
+            {
+              "cis": "abc-1234-bsduyd"
+            }
+          ]
+        },
+        {
+          "id": 1011,
+          "offerId": "100556386844",
+          "count": 1,
+          "price": 2200,
+          "vat": "VAT_20",
+          "instances":
+          [
+            {
+              "cis": "ded-8732-ajjsdhs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "creationDate": "10-12-2019 14:08:19",
+      "currency": "RUR",
+      "fake": false,
+      "id": 12346,
+      "itemsTotal": "30800",
+      "paymentType": "POSTPAID",
+      "paymentMethod": "CARD_ON_DELIVERY",
+      "status": "PROCESSING",
+      "substatus": "STARTED",
+      "total": "30800",
+      "delivery":
+      {
+        "serviceName": "Собственная служба доставки",
+        "type": "PICKUP",
+        "region":
+        {
+          "id": 213,
+          "name": "Москва",
+          "type": "CITY",
+          "parent":
+          {
+            "id": 1,
+            "name": "Москва и Московская область",
+            "type": "REPUBLIC",
+            "parent":
+            {
+              "id": 3,
+              "name": "Центральный федеральный округ",
+              "type": "AREA",
+              "parent":
+              {
+                "id": 225,
+                "name": "Россия",
+                "type": "COUNTRY"
+              }
+            }
+          }
+        },
+        "shipments":
+        [
+          {
+            "id": 706606,
+            "shipmentDate": "11-12-2019"
+          }
+        ]
+      },
+      "items":
+      [
+        {
+          "id": 1213,
+          "offerId": "100321105577",
+          "count": 1,
+          "price": 28900,
+          "vat": "VAT_20"
+        },
+        {
+          "id": 1415,
+          "offerId": "1717160460",
+          "count": 1,
+          "price": 1900,
+          "vat": "VAT_20"
+        }
+      ]
+    }
+  ],
+  "pager":
+  {
+    "currentPage": 1,
+    "from": 1,
+    "pagesCount": 1,
+    "pageSize": 2,
+    "to": 2,
+    "total": 2
+  }
+}
