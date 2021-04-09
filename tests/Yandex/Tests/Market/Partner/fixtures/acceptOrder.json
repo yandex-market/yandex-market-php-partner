@@ -1,0 +1,89 @@
+{
+  "order":
+  {
+    "currency": "RUR",
+    "fake": false,
+    "id": 12345,
+    "paymentType": "PREPAID",
+    "paymentMethod": "YANDEX",
+    "taxSystem": "OSN",
+    "delivery":
+    {
+      "price": 100,
+      "region_id": "213",
+      "serviceName": "СПСР",
+      "type": "DELIVERY",
+      "vat": "VAT_10",
+      "address":
+      {
+        "postcode": "119313",
+        "country": "Россия",
+        "city": "Москва",
+        "subway": "Проспект Вернадского",
+        "street": "Ленинский проспект",
+        "house": "90",
+        "floor": "6"
+      },
+      "dates":
+      {
+        "fromDate": "15-09-2020",
+        "toDate": "15-09-2020",
+        "fromTime": "09:00",
+        "toTime": "21:00"
+      },
+      "region":
+      {
+        "id": 213,
+        "name": "Москва",
+        "type": "CITY",
+        "parent":
+        {
+          "id": 1,
+          "name": "Москва и Московская область",
+          "type": "SUBJECT_FEDERATION",
+          "parent":
+          {
+            "id": 3,
+            "name": "Центральный федеральный округ",
+            "type": "COUNTRY_DISTRICT",
+            "parent":
+            {
+              "id": 225,
+              "name": "Россия",
+              "type": "COUNTRY"
+            }
+          }
+        }
+      }
+    },
+    "items":
+    [
+      {
+        "count": 1,
+        "feedCategoryId": "35",
+        "feedId": 12345,
+        "offerId": "4609283881",
+        "offerName": "Чайник электрический 100 W",
+        "price": 1200,
+        "vat": "VAT_20",
+        "promos":
+        [
+          {
+            "marketPromoId": "abc",
+            "subsidy": 300,
+            "type": "MARKET_DEAL"
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "feedCategoryId": "41",
+        "feedId": 12345,
+        "offerId": "4607632101",
+        "offerName": "Тостер",
+        "price": 2200,
+        "vat": "VAT_20"
+      }
+    ]
+  }
+}

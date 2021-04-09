@@ -1,0 +1,41 @@
+{
+  "status": "OK",
+  "result":
+  {
+    "items":
+    [
+      {
+        "id": 104703,
+        "vat": "VAT_20",
+        "count": 1,
+        "price": 990,
+        "feedId": 200304269,
+        "feedCategoryId": "2",
+        "offerName": "Духи Новая Заря Красная Москва, 42 мл",
+        "offerId": "8",
+        "instances":
+        [
+          {
+            "cis": "010465006531553121CtPoNqNB7qOdc"
+          }
+        ]
+      },
+      {
+        "id": 430858,
+        "vat": "VAT_20_120",
+        "count": 1,
+        "price": 12850,
+        "feedId": 200304269,
+        "feedCategoryId": "5",
+        "offerName": "Светодиодный осветитель Raylab RL‑0618 Kit кольцевой",
+        "offerId": "32",
+        "instances":
+        [
+          {
+            "cis": "010465006531290521p9YjRk;Ihdm6T2WItlgr"
+          }
+        ]
+      }
+    ]
+  }
+}
